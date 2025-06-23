@@ -1,30 +1,51 @@
 body {
   margin: 0;
   padding: 0;
-  background: black;
-  color: #00ff00;
+  background: #000000; /* fondo negro total */
+  color: #ffffff;
   font-family: 'Press Start 2P', monospace;
   overflow: hidden;
   cursor: pointer;
+  height: 100vh;
 }
 
-/* Fondo animado de estrellas */
 #stars {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: black url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/starfield.png') repeat;
-  background-size: cover;
-  animation: moveStars 60s linear infinite;
+  pointer-events: none;
+  top: 0;
+  left: 0;
   z-index: -1;
 }
 
-@keyframes moveStars {
-  from { background-position: 0 0; }
-  to { background-position: 0 2000px; }
+/* Estrellas con diferentes intensidades y tamaños */
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ffffff, transparent 70%);
+  animation: floatStar linear infinite;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 2px #ffffff);
 }
 
-/* Intro principal */
+.star.bright {
+  background: radial-gradient(circle at center, #ffffff, transparent 80%);
+  opacity: 1;
+  filter: drop-shadow(0 0 6px #fdfffd);
+}
+
+@keyframes floatStar {
+  from {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(-300px) translateX(50px);
+    opacity: 0;
+  }
+}
+
 #intro {
   height: 100vh;
   display: flex;
@@ -32,6 +53,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 0 20px;
 }
 
 .typewriter {
@@ -52,13 +74,12 @@ body {
   50% { border-color: transparent; }
 }
 
-/* Texto de clic */
 .click-text {
   margin-top: 40px;
   color: #ffffff;
   font-size: 10px;
-  opacity: 0;
-  animation: fadeIn 4s ease-in-out forwards infinite alternate;
+  animation: fadeIn 3s ease-in-out forwards infinite alternate;
+  user-select: none;
 }
 
 @keyframes fadeIn {
