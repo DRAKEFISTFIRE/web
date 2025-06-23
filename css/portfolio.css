@@ -1,20 +1,21 @@
 /* Reset y base */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  background-color: #0e1117; /* fondo oscuro pero menos negro */
+  background-color: #0e1117;
   color: #e1e1e1;
   font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
   scroll-behavior: smooth;
   display: flex;
+  flex-direction: row;
   min-height: 100vh;
 }
 
-/* Sidebar izquierda */
 .sidebar {
   width: 280px;
   background: #161b22;
@@ -23,15 +24,17 @@ body {
   flex-direction: column;
   align-items: center;
   border-right: 1px solid #272c36;
-  position: fixed;
-  height: 100vh;
-  top: 0;
-  left: 0;
+  position: relative;
+  flex-shrink: 0;
+  min-height: 100vh;        /* ✅ Siempre al menos tan alto como la pantalla */
+  max-height: 100vh;        /* ✅ Nunca más alto que la pantalla, a menos que crezca */
+  overflow-y: auto;         /* ✅ Scroll si se pasa */
 }
 
+
 .profile-img {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   border: 3px solid #58a6ff;
   box-shadow: 0 0 20px #58a6ff;
@@ -46,20 +49,18 @@ body {
 }
 
 .name {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #58a6ff;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.2rem;
   text-align: center;
+  margin-bottom: 0.4rem;
 }
 
 .subtitle {
   font-style: italic;
   color: #8b95a1;
-  font-weight: 300;
   font-size: 1.1rem;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
@@ -80,11 +81,10 @@ body {
   text-decoration: underline;
 }
 
-/* Redes sociales sidebar */
 .social-links {
   display: flex;
   gap: 1.2rem;
-  margin-top: auto;
+  margin-top: auto; /* ✅ Lo mantiene abajo en escritorio */
 }
 
 .social-links a {
@@ -97,22 +97,22 @@ body {
   color: #58a6ff;
 }
 
-/* Contenido principal a la derecha */
+/* Main content */
 main {
-  margin-left: 280px;
-  padding: 3rem 3rem 5rem 3rem;
-  max-width: 900px;
-  width: 100%;
+  flex-grow: 1;
+  padding: 3rem 2rem;
+  max-width: 100%;
 }
 
+/* Card layout */
 .card {
   background: #1c2128;
   border-radius: 12px;
-  padding: 2rem 2.4rem;
-  margin-bottom: 2.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
   box-shadow: 0 0 20px rgba(88, 166, 255, 0.15);
   transition: box-shadow 0.3s ease;
-  cursor: default;
+  border: 1px solid #2a2f36;
 }
 
 .card:hover {
@@ -120,7 +120,6 @@ main {
 }
 
 .card h2 {
-  margin-top: 0;
   font-size: 2rem;
   font-weight: 700;
   color: #58a6ff;
@@ -131,8 +130,8 @@ main {
 
 .card h3 {
   font-weight: 600;
-  margin-top: 1.5rem;
   color: #a0a9b8;
+  margin-top: 1.5rem;
 }
 
 .card p, .card ul {
@@ -140,22 +139,17 @@ main {
   font-weight: 300;
   font-size: 1.05rem;
   line-height: 1.5;
-  margin: 0;
-  padding: 0;
 }
 
 .card ul {
-  padding-left: 1.5rem;
-  margin-top: 0.6rem;
   list-style: none;
+  padding-left: 1.5rem;
 }
 
 .card ul li {
   position: relative;
   padding-left: 1.4rem;
   margin-bottom: 0.7rem;
-  font-weight: 400;
-  color: #d4d9e0;
 }
 
 .card ul li::before {
@@ -163,55 +157,23 @@ main {
   position: absolute;
   left: 0;
   color: #58a6ff;
-  font-weight: 700;
-  text-shadow: 0 0 8px #58a6ff;
+  font-weight: bold;
 }
 
-blockquote {
-  font-style: italic;
-  border-left: 4px solid #58a6ff;
-  padding-left: 1.2rem;
-  color: #a0a9b8;
-  margin: 0;
-  text-shadow: 0 0 5px rgba(88, 166, 255, 0.3);
-}
-
-/* Proyectos: separación y artículos */
+/* Article inside cards */
 .card article {
-  margin-top: 1.3rem;
+  margin-top: 1.5rem;
   padding-top: 1rem;
   border-top: 1px solid rgba(88, 166, 255, 0.3);
 }
 
-/* Responsive - móvil */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
-
- /* Sidebar izquierda */
-.sidebar {
-  width: 100%;
-  max-width: 320px; /* ancho máximo para que no sea demasiado ancho */
-  background: #161b22;
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-right: 1px solid #272c36;
-  position: fixed;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-}
-
-/* Contenido principal a la derecha */
-main {
-  margin-left: 320px; /* coincidir con el max-width del sidebar */
-  padding: 3rem 3rem 5rem 3rem;
-  max-width: calc(100% - 320px);
-  width: 100%;
+/* Blockquote */
+blockquote {
+  font-style: italic;
+  border-left: 4px solid #58a6ff;
+  padding-left: 1rem;
+  color: #a0a9b8;
+  margin-top: 1rem;
 }
 
 /* Responsive - móvil */
@@ -221,21 +183,32 @@ main {
   }
 
   .sidebar {
-    position: relative;
     width: 100%;
-    max-width: none;
-    height: auto;
+    height: auto; /* ✅ Evita problemas en móviles */
     border-right: none;
     border-bottom: 1px solid #272c36;
-    padding: 2rem 1rem;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    padding: 1.5rem;
+  }
+
+  .social-links {
+    margin-top: 2rem; /* ✅ Normal en móviles */
+    justify-content: center;
   }
 
   main {
-    margin-left: 0;
-    padding: 2rem 1rem 4rem 1rem;
-    max-width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  .profile-img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .name {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    padding: 1.5rem;
   }
 }
