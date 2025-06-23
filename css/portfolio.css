@@ -189,38 +189,53 @@ blockquote {
     flex-direction: column;
   }
 
+ /* Sidebar izquierda */
+.sidebar {
+  width: 100%;
+  max-width: 320px; /* ancho máximo para que no sea demasiado ancho */
+  background: #161b22;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #272c36;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+/* Contenido principal a la derecha */
+main {
+  margin-left: 320px; /* coincidir con el max-width del sidebar */
+  padding: 3rem 3rem 5rem 3rem;
+  max-width: calc(100% - 320px);
+  width: 100%;
+}
+
+/* Responsive - móvil */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
   .sidebar {
     position: relative;
     width: 100%;
+    max-width: none;
     height: auto;
     border-right: none;
     border-bottom: 1px solid #272c36;
     padding: 2rem 1rem;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-  }
-
-  .profile-img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 0;
-  }
-
-  .name, .subtitle, .contact-info {
-    display: none;
-  }
-
-  .social-links {
-    margin-top: 0;
   }
 
   main {
     margin-left: 0;
     padding: 2rem 1rem 4rem 1rem;
-  }
-
-  .card {
-    padding: 1.5rem 1.8rem;
+    max-width: 100%;
   }
 }
