@@ -17,3 +17,7 @@ function createStar() {
 }
 
 setInterval(createStar, 100);
+function toggleCard(id) {
+  const card = document.getElementById(id);
+  card.classList.toggle("hidden");
+}
