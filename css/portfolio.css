@@ -436,3 +436,159 @@ blockquote {
   color: var(--text-main);
   margin-bottom: 1.2rem;
 }
+/* Tarjetas de hard skills */
+.skills-grid > div {
+  padding: 1.3rem;
+  border-radius: 12px;
+  background: #1f2630;  /* fondo oscuro siempre */
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 18px var(--shadow-light);
+  margin-bottom: 1.5rem;
+  transition: none; /* sin transición para hover */
+}
+
+.skills-grid > div:hover {
+  background: #1f2630; /* sin cambio */
+  box-shadow: 0 6px 18px var(--shadow-light); /* sin cambio */
+}
+
+/* Títulos de hard skills */
+.skills-grid > div h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: white;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 0 0.5rem 0;
+}
+
+/* Tarjetas de soft skills */
+.soft-skills-grid .skill-card {
+  padding: 1.3rem;
+  border-radius: 12px;
+  background: #1f2630; /* fondo oscuro siempre */
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 18px var(--shadow-light);
+  margin-bottom: 1.5rem;
+  transition: none; /* sin transición para hover */
+}
+
+.soft-skills-grid .skill-card:hover {
+  background: #1f2630; /* sin cambio */
+  box-shadow: 0 6px 18px var(--shadow-light); /* sin cambio */
+}
+
+/* Títulos de soft skills */
+.soft-skills-grid .skill-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: white;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0;
+}
+
+/* Opcional: estilos para las barras si quieres darle color acorde */
+.skills-grid .bar span {
+  background-color: var(--primary-color);
+}
+
+/* Estilo base para las secciones internas */
+section[data-aos="fade-up"] {
+  padding: 1.3rem;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 18px var(--shadow-light);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+/* Hover para sección (opcional si quieres efecto hover) */
+section[data-aos="fade-up"]:hover {
+  background: rgba(88, 166, 255, 0.12);
+  box-shadow: 0 8px 24px var(--shadow-strong);
+}
+
+/* Títulos principales */
+section[data-aos="fade-up"] > h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+/* Para títulos dentro de sección (ej. h3 en recomendaciones y proyectos) */
+section[data-aos="fade-up"] h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  background: rgba(88, 166, 255, 0.12);
+  padding: 0.25rem 0.7rem;
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+  display: inline-block;
+}
+
+/* Estilo para párrafos (ejemplo experiencia laboral) */
+section[data-aos="fade-up"] p {
+  font-size: 0.96rem;
+  color: var(--text-subtle);
+  margin-bottom: 0.6rem;
+}
+
+/* Estilo para blockquote en recomendaciones */
+blockquote {
+  font-size: 0.96rem;
+  font-style: italic;
+  color: var(--text-muted);
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  margin: 0.6rem 0;
+}
+
+/* Para links dentro de proyectos */
+section.projects a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+section.projects a:hover {
+  text-decoration: underline;
+}
+
+/* Artículos dentro de proyectos */
+section.projects article {
+  margin-bottom: 1rem;
+}
+/* --------------------------------- */
+/* Estilos para Soft Skills Grid */
+
+/* Tarjetas de soft skills, igual que las hard skills */
+.soft-skills-grid .skill-card {
+  padding: 1.3rem;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 18px var(--shadow-light);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.soft-skills-grid .skill-card:hover {
+  background: rgba(88, 166, 255, 0.12);
+  box-shadow: 0 8px 24px var(--shadow-strong);
+}
+
+/* Títulos de soft skills sin fondo ni borde, texto blanco */
+.soft-skills-grid .skill-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: rgb(69, 130, 243);            /* texto blanco */
+  background: none !important;  /* sin fondo */
+  border: none !important;      /* sin borde */
+  padding: 0 !important;        /* sin padding extra */
+  margin: 0;                   /* ajustar márgenes si quieres */
+}

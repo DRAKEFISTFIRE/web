@@ -1,14 +1,17 @@
+/* RESET Y BODY */
 body {
   margin: 0;
   padding: 0;
-  background: #000000; /* fondo negro total */
+  background: #000000;
   color: #ffffff;
   font-family: 'Press Start 2P', monospace;
   overflow: hidden;
   cursor: pointer;
   height: 100vh;
+  user-select: none;
 }
 
+/* CONTENEDOR ESTRELLAS */
 #stars {
   position: fixed;
   width: 100%;
@@ -17,16 +20,18 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
+  overflow: hidden;
 }
 
-/* Estrellas con diferentes intensidades y tamaños */
+/* ESTRELLAS */
 .star {
   position: absolute;
   border-radius: 50%;
   background: radial-gradient(circle at center, #ffffff, transparent 70%);
-  animation: floatStar linear infinite;
   opacity: 0.6;
   filter: drop-shadow(0 0 2px #ffffff);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 .star.bright {
@@ -35,17 +40,27 @@ body {
   filter: drop-shadow(0 0 6px #fdfffd);
 }
 
+/* ANIMACIÓN DE FLOTAR Y PARPADEAR ESTRELLAS */
 @keyframes floatStar {
-  from {
+  0% {
     transform: translateY(0) translateX(0);
     opacity: 0.8;
   }
-  to {
+  50% {
+    opacity: 1;
+  }
+  100% {
     transform: translateY(-300px) translateX(50px);
     opacity: 0;
   }
 }
 
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* CONTENEDOR INTRO */
 #intro {
   height: 100vh;
   display: flex;
@@ -54,36 +69,59 @@ body {
   align-items: center;
   text-align: center;
   padding: 0 20px;
+  filter: drop-shadow(0 0 6px #58a6ff);
 }
 
+/* EFECTO MAQUINA DE ESCRIBIR */
 .typewriter {
-  border-right: 2px solid #ffffff;
+  border-right: 3px solid #58a6ff;
   white-space: nowrap;
   overflow: hidden;
   width: 0;
   font-size: 14px;
-  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+  animation: typing 4s steps(40, end) forwards, blink 0.8s step-end infinite;
+  color: #ffffff;
+  text-shadow: 0 0 8px #58a6ff;
 }
 
+/* ANIMACIONES TYPING & BLINK */
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from { width: 0; }
+  to { width: 100%; }
 }
-
 @keyframes blink {
   50% { border-color: transparent; }
 }
 
+/* TEXTO CLICK PARA CONTINUAR */
 .click-text {
   margin-top: 40px;
-  color: #ffffff;
+  color: #58a6ff;
   font-size: 10px;
-  animation: fadeIn 3s ease-in-out forwards infinite alternate;
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards, pulse 2.5s infinite alternate;
   user-select: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  text-shadow: 0 0 6px #58a6ff;
 }
 
+/* APARECER Y PULSAR */
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+  to { opacity: 1; }
+}
+@keyframes pulse {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+/* EFECTO REBOTE AL HACER HOVER */
+.click-text:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 12px #8fcaff;
+}
+
+/* EFECTO REBOTE AL HACER CLICK */
+.click-text:active {
+  transform: scale(0.95);
 }
