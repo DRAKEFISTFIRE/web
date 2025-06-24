@@ -1,6 +1,3 @@
-/* =======================
-   Reset y Variables Globales
-======================= */
 :root {
   --primary-color: #58a6ff;
   --bg-dark: #0e1117;
@@ -50,12 +47,12 @@ body {
   box-shadow: 0 0 20px var(--primary-color);
   object-fit: cover;
   margin-bottom: 1.5rem;
-  transition: 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .profile-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px var(--primary-color);
+  transform: scale(1.08);
+  box-shadow: 0 0 45px var(--primary-color);
 }
 
 .name {
@@ -79,7 +76,7 @@ body {
   color: var(--text-muted);
   text-align: center;
   margin-bottom: 2rem;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .contact-info a {
@@ -106,7 +103,7 @@ body {
 
 .social-links a:hover {
   color: var(--primary-color);
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 /* Main */
@@ -123,13 +120,14 @@ section {
   padding: 2.5rem;
   margin-bottom: 2.5rem;
   border: 1px solid var(--border-color);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 section h2 {
   font-size: 2rem;
   color: var(--primary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   border-bottom: 2px solid var(--primary-color);
   padding-bottom: 0.5rem;
 }
@@ -159,22 +157,36 @@ section ul li::before {
 }
 
 .skills-grid div h3 {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin-bottom: 0.5rem;
   color: var(--primary-color);
 }
+.skills-grid div h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff; /* Ahora en blanco puro */
+}
+
+.skills .bar span {
+  display: block;
+  height: 100%;
+  background: #ffffff; /* Barra en blanco */
+  transition: width 0.5s ease;
+}
+
 
 .skills .bar {
   background: var(--border-color);
   border-radius: 10px;
   overflow: hidden;
-  height: 12px;
+  height: 14px;
 }
 
 .skills .bar span {
   display: block;
   height: 100%;
   background: var(--primary-color);
+  transition: width 0.5s ease;
 }
 
 /* Soft Skills */
@@ -186,11 +198,52 @@ section ul li::before {
 
 .soft-skills li {
   background: var(--bg-sidebar);
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
+  padding: 0.6rem 1.1rem;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
-  font-size: 0.95rem;
+  font-size: 0.96rem;
   color: var(--text-muted);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.soft-skills li:hover {
+  background: #1f2630;
+  transform: scale(1.05);
+}
+
+/* Soft Skills con emoji en card */
+.soft-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.skill-card {
+  background: var(--bg-sidebar);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 22px var(--shadow-light);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.skill-card:hover {
+  background: #1f2630;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px var(--shadow-strong);
+}
+
+.skill-card .emoji {
+  font-size: 44px;
+  margin-bottom: 12px;
+}
+
+.skill-card h3 {
+  font-size: 1rem;
+  color: var(--text-main);
+  margin: 0;
 }
 
 /* Proyectos */
@@ -200,7 +253,7 @@ section ul li::before {
   padding: 1.5rem;
   margin-bottom: 2rem;
   border: 1px solid var(--border-color);
-  box-shadow: 0 5px 20px var(--shadow-light);
+  box-shadow: 0 6px 22px var(--shadow-light);
   transition: 0.3s ease;
 }
 
