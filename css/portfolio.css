@@ -9,50 +9,63 @@
   --text-subtle: #8b95a1;
   --shadow-light: rgba(88, 166, 255, 0.15);
   --shadow-strong: rgba(88, 166, 255, 0.4);
+  --font-family: 'Montserrat', sans-serif;
+  --transition-speed: 0.3s;
+  --border-radius: 12px;
+  --max-sidebar-width: 300px;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background-color: var(--bg-dark);
   color: var(--text-main);
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-family);
   line-height: 1.6;
   scroll-behavior: smooth;
   display: flex;
   flex-direction: row;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Sidebar */
 .sidebar {
   width: 280px;
+  max-width: var(--max-sidebar-width);
   background: var(--bg-sidebar);
   display: flex;
   flex-direction: column;
   align-items: center;
   border-right: 1px solid var(--border-color);
   padding: 2rem 1.5rem;
+  transition: background var(--transition-speed) ease;
 }
 
 .profile-img {
   width: 160px;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   border: 3px solid var(--primary-color);
   box-shadow: 0 0 20px var(--primary-color);
   object-fit: cover;
   margin-bottom: 1.5rem;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
 }
 
-.profile-img:hover {
+.profile-img:hover,
+.profile-img:focus {
   transform: scale(1.08);
   box-shadow: 0 0 45px var(--primary-color);
+  outline: none;
 }
 
 .name {
@@ -61,6 +74,7 @@ body {
   color: var(--primary-color);
   text-align: center;
   margin-bottom: 0.4rem;
+  user-select: none;
 }
 
 .subtitle {
@@ -69,6 +83,7 @@ body {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
   text-align: center;
+  line-height: 1.3;
 }
 
 .contact-info {
@@ -82,10 +97,14 @@ body {
 .contact-info a {
   color: var(--primary-color);
   text-decoration: none;
+  transition: color var(--transition-speed) ease;
 }
 
-.contact-info a:hover {
+.contact-info a:hover,
+.contact-info a:focus {
   text-decoration: underline;
+  outline: none;
+  color: lighten(var(--primary-color), 10%);
 }
 
 .social-links {
@@ -98,12 +117,14 @@ body {
 .social-links a {
   color: var(--text-subtle);
   font-size: 1.8rem;
-  transition: 0.3s ease;
+  transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
-.social-links a:hover {
+.social-links a:hover,
+.social-links a:focus {
   color: var(--primary-color);
   transform: scale(1.15);
+  outline: none;
 }
 
 /* Main */
@@ -111,6 +132,7 @@ main {
   flex-grow: 1;
   padding: 3rem 2rem;
   max-width: 100%;
+  background: var(--bg-dark);
 }
 
 /* Sections */
@@ -121,7 +143,7 @@ section {
   margin-bottom: 2.5rem;
   border: 1px solid var(--border-color);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
 section h2 {
@@ -130,9 +152,11 @@ section h2 {
   margin-bottom: 1.2rem;
   border-bottom: 2px solid var(--primary-color);
   padding-bottom: 0.5rem;
+  user-select: none;
 }
 
-section p, section li {
+section p,
+section li {
   color: var(--text-main);
   font-size: 1rem;
   margin-bottom: 1rem;
@@ -140,13 +164,28 @@ section p, section li {
 
 section ul {
   list-style: none;
-  padding-left: 0;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--primary-color);
+}
+
+section ul li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: var(--text-main);
+  position: relative;
+  padding-left: 1.2rem;
 }
 
 section ul li::before {
   content: "▹";
+  position: absolute;
+  left: 0;
   color: var(--primary-color);
-  margin-right: 0.5rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1;
+  top: 0.1rem;
 }
 
 /* Skills */
@@ -159,27 +198,16 @@ section ul li::before {
 .skills-grid div h3 {
   font-size: 1.15rem;
   margin-bottom: 0.5rem;
-  color: var(--primary-color);
+  color: #ffffff; /* Blanco puro para mejor contraste */
+  user-select: none;
 }
-.skills-grid div h3 {
-  font-size: 1.15rem;
-  margin-bottom: 0.5rem;
-  color: #ffffff; /* Ahora en blanco puro */
-}
-
-.skills .bar span {
-  display: block;
-  height: 100%;
-  background: #ffffff; /* Barra en blanco */
-  transition: width 0.5s ease;
-}
-
 
 .skills .bar {
   background: var(--border-color);
   border-radius: 10px;
   overflow: hidden;
   height: 14px;
+  margin-bottom: 1rem;
 }
 
 .skills .bar span {
@@ -199,16 +227,20 @@ section ul li::before {
 .soft-skills li {
   background: var(--bg-sidebar);
   padding: 0.6rem 1.1rem;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   font-size: 0.96rem;
   color: var(--text-muted);
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
+  cursor: default;
+  user-select: none;
 }
 
-.soft-skills li:hover {
+.soft-skills li:hover,
+.soft-skills li:focus {
   background: #1f2630;
   transform: scale(1.05);
+  outline: none;
 }
 
 /* Soft Skills con emoji en card */
@@ -227,12 +259,16 @@ section ul li::before {
   border: 1px solid var(--border-color);
   box-shadow: 0 6px 22px var(--shadow-light);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: default;
+  user-select: none;
 }
 
-.skill-card:hover {
+.skill-card:hover,
+.skill-card:focus {
   background: #1f2630;
   transform: translateY(-5px);
   box-shadow: 0 10px 30px var(--shadow-strong);
+  outline: none;
 }
 
 .skill-card .emoji {
@@ -244,6 +280,7 @@ section ul li::before {
   font-size: 1rem;
   color: var(--text-main);
   margin: 0;
+  user-select: none;
 }
 
 /* Proyectos */
@@ -254,18 +291,22 @@ section ul li::before {
   margin-bottom: 2rem;
   border: 1px solid var(--border-color);
   box-shadow: 0 6px 22px var(--shadow-light);
-  transition: 0.3s ease;
+  transition: background var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  cursor: pointer;
 }
 
-.projects article:hover {
+.projects article:hover,
+.projects article:focus {
   background: #1f2630;
   box-shadow: 0 10px 30px var(--shadow-strong);
+  outline: none;
 }
 
 .projects article h3 {
   margin-bottom: 0.8rem;
   font-size: 1.3rem;
   color: var(--primary-color);
+  user-select: none;
 }
 
 .projects article p {
@@ -280,6 +321,7 @@ blockquote {
   padding-left: 1rem;
   color: var(--text-muted);
   margin-top: 1rem;
+  user-select: none;
 }
 
 /* Responsive */
@@ -305,4 +347,55 @@ blockquote {
   main {
     padding: 2rem 1rem;
   }
+}
+.education-box {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+
+.edu-degree {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  background: #f0f0f0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.edu-date {
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #dbeafe;
+  color: #2563eb;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
+.edu-subject {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.edu-description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.edu-center {
+  font-size: 0.85rem;
+  color: #888;
 }
