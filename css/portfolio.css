@@ -1,155 +1,126 @@
-/* Reset y base */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* Mejoras generales */
 body {
   background-color: #0e1117;
   color: #e1e1e1;
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.5;
-  scroll-behavior: smooth;
   display: flex;
   flex-direction: row;
   min-height: 100vh;
+  line-height: 1.6;
 }
 
 .sidebar {
-  width: 280px;
-  background: #161b22;
-  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-right: 1px solid #272c36;
-  position: relative;
-  flex-shrink: 0;
-  min-height: 100vh;        /* ✅ Siempre al menos tan alto como la pantalla */
-  max-height: 100vh;        /* ✅ Nunca más alto que la pantalla, a menos que crezca */
-  overflow-y: auto;         /* ✅ Scroll si se pasa */
+  justify-content: flex-start; /* Antes: space-between */
+  height: 100vh;
+  position: sticky; /* opcional */
+  top: 0;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
 }
 
 
 .profile-img {
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   border: 3px solid #58a6ff;
-  box-shadow: 0 0 20px #58a6ff;
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.4);
+  transition: all 0.3s ease;
   object-fit: cover;
-  margin-bottom: 1.5rem;
-  transition: transform 0.3s ease;
+  margin-bottom: 1.2rem;
 }
 
 .profile-img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 40px #58a6ff;
+  box-shadow: 0 0 25px rgba(88, 166, 255, 0.6);
 }
 
 .name {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: bold;
   color: #58a6ff;
-  text-align: center;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .subtitle {
+  font-size: 1rem;
   font-style: italic;
-  color: #8b95a1;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
+  color: #a0a9b8;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
 .contact-info {
   font-size: 0.9rem;
-  color: #a0a9b8;
+  color: #c0c6d4;
   text-align: center;
-  margin-bottom: 2rem;
-  line-height: 1.4;
-}
-
-.contact-info a {
-  color: #58a6ff;
-  text-decoration: none;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
+  margin-bottom: 1.5rem;
 }
 
 .social-links {
   display: flex;
-  gap: 1.2rem;
-  margin-top: auto; /* ✅ Lo mantiene abajo en escritorio */
+  justify-content: center;
+  gap: 1rem;
+  margin-top: auto;
 }
 
-.social-links a {
-  color: #8b95a1;
-  font-size: 1.8rem;
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #58a6ff;
-}
-
-/* Main content */
+/* Main */
 main {
-  flex-grow: 1;
+  flex: 1;
   padding: 3rem 2rem;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-/* Card layout */
+/* Cards refinadas */
 .card {
   background: #1c2128;
-  border-radius: 12px;
+  border: 1px solid #2c313a;
+  border-radius: 16px;
   padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 0 20px rgba(88, 166, 255, 0.15);
-  transition: box-shadow 0.3s ease;
-  border: 1px solid #2a2f36;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 0 40px rgba(88, 166, 255, 0.4);
+  box-shadow: 0 12px 30px rgba(88, 166, 255, 0.2);
+  transform: translateY(-4px);
 }
 
 .card h2 {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.6rem;
   color: #58a6ff;
-  border-bottom: 2px solid #58a6ff;
+  border-bottom: 2px solid #2a2f36;
   padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .card h3 {
-  font-weight: 600;
+  font-size: 1.2rem;
   color: #a0a9b8;
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
 }
 
-.card p, .card ul {
-  color: #c3cad9;
+.card p,
+.card ul {
+  color: #ccd2e3;
+  font-size: 1rem;
   font-weight: 300;
-  font-size: 1.05rem;
-  line-height: 1.5;
 }
 
 .card ul {
+  padding-left: 1.2rem;
   list-style: none;
-  padding-left: 1.5rem;
 }
 
 .card ul li {
   position: relative;
-  padding-left: 1.4rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
 }
 
 .card ul li::before {
@@ -157,14 +128,6 @@ main {
   position: absolute;
   left: 0;
   color: #58a6ff;
-  font-weight: bold;
-}
-
-/* Article inside cards */
-.card article {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(88, 166, 255, 0.3);
 }
 
 /* Blockquote */
@@ -176,7 +139,7 @@ blockquote {
   margin-top: 1rem;
 }
 
-/* Responsive - móvil */
+/* Responsive */
 @media (max-width: 768px) {
   body {
     flex-direction: column;
@@ -184,15 +147,8 @@ blockquote {
 
   .sidebar {
     width: 100%;
-    height: auto; /* ✅ Evita problemas en móviles */
     border-right: none;
     border-bottom: 1px solid #272c36;
-    padding: 1.5rem;
-  }
-
-  .social-links {
-    margin-top: 2rem; /* ✅ Normal en móviles */
-    justify-content: center;
   }
 
   main {
@@ -200,12 +156,12 @@ blockquote {
   }
 
   .profile-img {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
   }
 
   .name {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .card {
