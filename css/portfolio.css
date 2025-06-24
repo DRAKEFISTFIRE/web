@@ -349,53 +349,90 @@ blockquote {
   }
 }
 .education-box {
-  padding: 1rem;
+  padding: 1.3rem;
   border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  margin-bottom: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 18px var(--shadow-light);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+  margin-bottom: 1.5rem; /* separación entre cajas */
+}
+
+.education-box:hover {
+  background: #1f2630;
+  box-shadow: 0 8px 24px var(--shadow-strong);
 }
 
 .edu-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
 .edu-degree {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #555;
-  background: #f0f0f0;
-  padding: 0.2rem 0.6rem;
-  border-radius: 6px;
+  color: var(--primary-color);
+  background: rgba(88, 166, 255, 0.12);
+  padding: 0.25rem 0.7rem;
+  border-radius: 8px;
 }
 
 .edu-date {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  background: #dbeafe;
-  color: #2563eb;
-  padding: 0.2rem 0.6rem;
-  border-radius: 6px;
+  color: var(--text-muted);
+  background: var(--border-color);
+  padding: 0.25rem 0.7rem;
+  border-radius: 8px;
 }
 
 .edu-subject {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: #222;
-  margin-bottom: 0.4rem;
-  margin-top: 0.2rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  margin-top: 0.1rem;
 }
 
 .edu-description {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 0.5rem;
+  font-size: 0.96rem;
+  color: var(--text-subtle);
+  margin-bottom: 0.6rem;
 }
 
 .edu-center {
   font-size: 0.85rem;
-  color: #888;
+  color: var(--text-muted);
+}
+
+.profile-box {
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px var(--shadow-light);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.profile-box:hover {
+  background: #1f2630;
+  box-shadow: 0 6px 18px var(--shadow-strong);
+}
+
+.profile-box p {
+  font-size: 0.92rem;
+  color: var(--text-subtle);
+  line-height: 1.55;
+  margin-bottom: 0.8rem;
+}
+
+.personal-profile h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.2rem;
 }
