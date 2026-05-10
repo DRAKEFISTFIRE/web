@@ -1145,26 +1145,101 @@
   color: #c8a84b;
 }
 
-
 .banner-minisantes {
     margin-top: -15px;
+
     background-image: url('https://drakefistfire.github.io/web/images/banner-joc.png');
-    background-size: cover;        /* clau: omple tota la secció */
-    background-position: center;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
 
-    height: 400px;                /* pots ajustar o fer-lo responsive */
     width: 100%;
+    min-height: 100vh; /* ocupa tota la pantalla */
 
-    display: flex;                /* per centrar el text fàcilment */
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-bottom: -50px;
-    color: #000;
+
     position: relative;
+    overflow: hidden;
+
+    margin-bottom: 0;
+    color: white;
 }
+
+/* overlay cinematic */
+.banner-minisantes::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.35),
+            rgba(0,0,0,0.75)
+        );
+
+    z-index: 1;
+}
+
+/* contingut damunt overlay */
+.banner-minisantes > * {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-minisantes h1 {
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 30px rgba(0,0,0,0.8),
+        0 0 60px rgba(200,168,75,0.35);
+}
+
+.banner-minisantes h2 {
+    margin-top: 18px;
+
+    font-size: clamp(1.2rem, 2vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,0.85);
+
+    text-shadow:
+        0 0 20px rgba(0,0,0,0.8);
+}
+
+/* extra gran en monitors */
+@media (min-width: 1400px) {
+    .banner-minisantes {
+        min-height: 110vh;
+    }
+}
+
+/* mòbil */
+@media (max-width: 768px) {
+    .banner-minisantes {
+        min-height: 70vh;
+        padding: 40px 20px;
+    }
+
+    .banner-minisantes h1 {
+        font-size: clamp(3rem, 14vw, 5rem);
+    }
+
+    .banner-minisantes h2 {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+}
+
 .banner-minisantes h1 {
     color: white;
     font-size: 6rem;
