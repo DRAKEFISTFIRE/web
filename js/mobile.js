@@ -8,76 +8,74 @@ style.textContent = `
   display: grid !important;
   grid-template-columns: repeat(4, 1fr) !important;
   gap: 6px !important;
-  padding: 8px !important;
+  padding: 10px !important;
 
-  background: #0d0d0d !important;
+  background: rgba(10,10,10,0.98) !important;
   border-top: 3px solid #ffd54a !important;
 
   position: relative !important;
-  z-index: 999 !important;
+  z-index: 9999 !important;
 }
 
 /* ══════════════════════════════════════
-   BOTONS MÒBIL — MOLT VISIBLES
+   BOTONS ULTRA VISIBLES
 ══════════════════════════════════════ */
 
 .lane-tap {
-  height: 92px !important;
+  height: 88px !important;
+  width: 100% !important;
 
   display: flex !important;
-  flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
+  flex-direction: column !important;
 
-  border-radius: 12px !important;
+  border-radius: 14px !important;
 
-  /* 🔥 ALTA VISIBILITAT */
+  /* 🔥 CONTRAST ALT */
   background: #ffffff !important;
   border: 3px solid #ffd54a !important;
 
   box-shadow:
-    0 6px 16px rgba(0,0,0,0.35),
+    0 6px 18px rgba(0,0,0,0.4),
     inset 0 0 0 2px rgba(255, 213, 74, 0.25);
-
-  touch-action: manipulation !important;
-  -webkit-tap-highlight-color: transparent !important;
 
   user-select: none !important;
   -webkit-user-select: none !important;
 
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+
   cursor: pointer !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  width: 100% !important;
 }
 
-/* TEXT CLAR I LLEGIBLE */
+/* 🔥 TEXT MOLT LLEGIBLE */
 .lane-tap .kt {
-  font-family: 'Arial', sans-serif !important;
-  font-size: 16px !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 18px !important;
   font-weight: 900 !important;
-  color: #111 !important;
-  letter-spacing: 1px;
+
+  color: #000 !important;
   opacity: 1 !important;
+
+  text-shadow: none !important;
 }
 
-/* EFECTE TOC */
+/* 🔥 QUAN TOQUES */
 .lane-tap:active {
-  transform: scale(0.94);
+  transform: scale(0.95);
   background: #ffe27a !important;
 }
 
-/* HIT FEEDBACK */
+/* HIT */
 .lane-tap.hit {
   background: #ffd54a !important;
-  border-color: #ffcc00 !important;
-  transform: scale(0.95);
+  color: #000 !important;
 }
 
-/* MISS FEEDBACK */
+/* MISS */
 .lane-tap.miss-flash {
-  background: #ff4d4d !important;
-  border-color: #ff1a1a !important;
+  background: #ff3b3b !important;
 }
 `;
   document.head.appendChild(style);
