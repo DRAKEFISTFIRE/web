@@ -23,7 +23,7 @@ const SONGS = [
     id: 'drac',
     title: 'El Drac',
     artist: 'Les Santes de Mataró',
-    audioSrc: 'https://drakefistfire.github.io/web/audio/Drac.mp3',
+    audioSrc: 'https://drakefist+-fire.github.io/web/audio/Drac.mp3',
     audioSrcEx: 'https://drakefistfire.github.io/web/audio/DracX2.mp3',
     videoSrc: 'https://drakefistfire.github.io/web/video/Drac.mp4',
     bgColor: '#1a0a2e',
@@ -1175,3 +1175,19 @@ window.addEventListener('resize', ()=>{ if(document.getElementById('screen-game'
 
 // Initialize lane bar labels on load
 updateLaneBarLabels();
+
+document.addEventListener('touchstart', function(e) {
+  // Pinta tots els carrils de verd brillant
+  for (var i = 0; i < 4; i++) {
+    var el = document.getElementById('lt' + i);
+    if (el) el.style.background = 'lime';
+  }
+  // Mostra info al HUD
+  var hud = document.getElementById('hud-score');
+  if (hud) {
+    var t = e.touches[0];
+    var touched = document.elementFromPoint(t.clientX, t.clientY);
+    hud.textContent = (touched ? touched.id || touched.tagName : '?') + 
+                      ' run:' + (typeof G !== 'undefined' ? G.running : 'NO');
+  }
+}, { passive: true });
