@@ -4,24 +4,6 @@
 
   var style = document.createElement('style');
 style.textContent = `
-/* ══════════════════════════════════════
-   LANE BAR (COHERENTE CON EL TEMA)
-══════════════════════════════════════ */
-
-#lane-bar {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 6px !important;
-  padding: 10px !important;
-
-  background: rgba(0,0,0,0.95) !important;
-  border-top: 2px solid #c8a84b !important;
-
-  position: relative !important;
-  z-index: 9999 !important;
-}
-
-/* BOTONES DE CARRIL */
 .lane-tap {
   height: 86px !important;
   width: 100% !important;
@@ -33,58 +15,58 @@ style.textContent = `
 
   border-radius: 10px !important;
 
-  /* estilo oscuro elegante */
-  background: linear-gradient(145deg, #0e0c0a, #060504) !important;
-  border: 1px solid rgba(200,168,75,0.25) !important;
+  /* 🔥 FONDO OSCURO ELEGANTE (NO BLANCO) */
+  background: linear-gradient(145deg, #120f0c, #070605) !important;
+
+  border: 1px solid rgba(200,168,75,0.18) !important;
 
   box-shadow:
-    inset 0 0 10px rgba(0,0,0,0.6),
-    0 6px 20px rgba(0,0,0,0.4);
+    inset 0 0 12px rgba(0,0,0,0.8),
+    0 6px 18px rgba(0,0,0,0.45);
 
   cursor: pointer !important;
+  transition: all 0.15s ease !important;
+
   user-select: none !important;
   -webkit-tap-highlight-color: transparent !important;
-  touch-action: manipulation !important;
-
-  transition: all 0.15s ease !important;
 }
 
-/* TEXTO TECLA */
+/* TEXTO */
 .lane-tap .kt {
   font-family: 'Cinzel', serif !important;
-  font-size: 12px !important;
+  font-size: 11px !important;
   font-weight: 700 !important;
   letter-spacing: 1px !important;
 
-  color: rgba(200,168,75,0.6) !important;
+  color: rgba(200,168,75,0.55) !important;
 }
 
-/* HOVER SUAVE */
+/* HOVER (efecto lujo suave) */
 .lane-tap:hover {
   transform: translateY(-2px);
-  border-color: #c8a84b !important;
+  border-color: rgba(200,168,75,0.6) !important;
   box-shadow:
-    0 10px 25px rgba(0,0,0,0.5),
-    0 0 12px rgba(200,168,75,0.15);
+    0 10px 25px rgba(0,0,0,0.6),
+    0 0 14px rgba(200,168,75,0.15);
 }
 
 /* CLICK */
 .lane-tap:active {
   transform: scale(0.96);
-  background: rgba(200,168,75,0.12) !important;
+  background: rgba(200,168,75,0.08) !important;
 }
 
 /* HIT */
 .lane-tap.hit {
-  background: rgba(200,168,75,0.25) !important;
+  background: rgba(200,168,75,0.22) !important;
   border-color: #c8a84b !important;
-  box-shadow: 0 0 18px rgba(200,168,75,0.4);
+  box-shadow: 0 0 20px rgba(200,168,75,0.35);
 }
 
 /* MISS */
 .lane-tap.miss-flash {
-  background: rgba(180,20,20,0.25) !important;
-  border-color: rgba(255,80,80,0.6) !important;
+  background: rgba(180,20,20,0.2) !important;
+  border-color: rgba(255,80,80,0.5) !important;
 }
 `;
   document.head.appendChild(style);
