@@ -1,70 +1,81 @@
-// ═══════════════════════════════════════════════════════════════
-// mobile.js — Fix touch per a mòbil
-// ═══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════════
+   mobile.js — Touch fix definitiu
+   Es carrega ABANS de joc.js, per això usem DOMContentLoaded
+   i un wrapper que espera que tapLane existeixi
+═══════════════════════════════════════════════════════════════ */
 
-(function() {
+(function () {
 
-  // ── CSS: elimina delay 300ms, highlight i zoom ───────────────
-  const style = document.createElement('style');
-  style.textContent = `
-    #lane-bar, .lane-tap {
-      touch-action: manipulation !important;
-      -webkit-tap-highlight-color: transparent !important;
-      user-select: none !important;
-      -webkit-user-select: none !important;
-      cursor: pointer !important;
+  /* ── 1. Injecta CSS crític ────────────────────────────────── */
+  var s = document.createElement('style');
+  s.textContent = [
+    '#lane-bar    { pointer-events: auto !important; z-index: 50 !important; position: relative !important; }',
+    '.lane-tap    { pointer-events: auto !important; cursor: pointer !important;',
+    '              touch-action: manipulation !important;',
+    '              -webkit-tap-highlight-color: transparent !important;',
+    '              user-select: none !important; -webkit-user-select: none !important; }',
+    '#canvas-area  { pointer-events: none !important; }',
+    '#game-overlay { pointer-events: none !important; }',
+    '#game-video-bg{ pointer-events: none !important; }'
+  ].join('\n');
+  document.head.appendChild(s);
+
+  /* ── 2. Wrapper segur per cridar tapLane ──────────────────── */
+  function safeTap(lane, e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
     }
-  `;
-  document.head.appendChild(style);
+    if (typeof tapLane === 'function') {
+      tapLane(lane, null);
+    }
+  }
 
-  // ── Evita que el touch dispari tant touchstart com mousedown ──
-  // (en mòbil sense aquest fix, tapLane es crida dues vegades)
+  /* ── 3. Afegeix listeners als 4 carrils ───────────────────── */
   function setup() {
-    const lts = [
-      document.getElementById('lt0'),
-      document.getElementById('lt1'),
-      document.getElementById('lt2'),
-      document.getElementById('lt3'),
-    ];
+    for (var i = 0; i < 4; i++) {
+      (function (lane) {
+        var el = document.getElementById('lt' + lane);
+        if (!el) return;
 
-    lts.forEach(function(el, i) {
-      if (!el) return;
+        /* Eliminem els atributs inline per evitar doble crida */
+        el.removeAttribute('ontouchstart');
+        el.removeAttribute('onmousedown');
 
-      // Quan hi ha touchstart, marquem que ja hem processat el toc
-      // per evitar que el mousedown posterior el torni a cridar
-      el.addEventListener('touchstart', function(e) {
-        e.preventDefault();       // evita el mousedown sintètic i el zoom
-        e.stopPropagation();      // evita que el lane-bar el capturi
-        tapLane(i, null);
-      }, { passive: false });
+        /* touchstart — immediat, sense delay */
+        el.addEventListener('touchstart', function (e) {
+          safeTap(lane, e);
+        }, { passive: false });
 
-      // mousedown NOMÉS si no ve d'un toc (ratolí real)
-      el.addEventListener('mousedown', function(e) {
-        if (e.sourceCapabilities && e.sourceCapabilities.firesTouchEvents) return;
-        tapLane(i, null);
-      });
-    });
+        /* mousedown — per ratolí (desktop) */
+        el.addEventListener('mousedown', function (e) {
+          safeTap(lane, e);
+        });
 
-    // El lane-bar tenia un listener que feia preventDefault però NO cridava tapLane.
-    // El sobreescrivim per no bloquejar res — els fills (lt0-lt3) ja gestionen tot.
-    const laneBar = document.getElementById('lane-bar');
-    if (laneBar) {
-      laneBar.addEventListener('touchstart', function(e) {
-        e.preventDefault(); // evita scroll/zoom sobre el lane-bar
+      })(i);
+    }
+
+    /* Lane-bar: evita scroll/zoom però no bloqueja fills */
+    var lb = document.getElementById('lane-bar');
+    if (lb) {
+      lb.addEventListener('touchstart', function (e) {
+        e.preventDefault();
       }, { passive: false });
     }
   }
 
+  /* Esperem que el DOM estigui llest */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setup);
   } else {
     setup();
   }
 
-  // ── Viewport: evita zoom accidental (doble tap iOS) ──────────
-  const meta = document.querySelector('meta[name="viewport"]');
+  /* ── 4. Fix viewport (evita zoom doble-tap iOS) ───────────── */
+  var meta = document.querySelector('meta[name="viewport"]');
   if (meta) {
-    meta.content = 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no';
+    meta.setAttribute('content',
+      'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no');
   }
 
 })();
