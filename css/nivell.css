@@ -51,7 +51,7 @@
 #title-bg {
     position: absolute;
     inset: 0;
-    background-image: url('https://drakefistfire.github.io/web/images/joc1.png');
+    background-image: url('https://drakefistfire.github.io/web/images/joc1.png') !important;
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;

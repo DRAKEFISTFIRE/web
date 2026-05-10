@@ -4,25 +4,26 @@
 
   var style = document.createElement('style');
 style.textContent = `
+/* ══════════════════════════════════════
+   LANE BAR (COHERENTE CON EL TEMA)
+══════════════════════════════════════ */
+
 #lane-bar {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr) !important;
   gap: 6px !important;
   padding: 10px !important;
 
-  background: rgba(10,10,10,0.98) !important;
-  border-top: 3px solid #ffd54a !important;
+  background: rgba(0,0,0,0.95) !important;
+  border-top: 2px solid #c8a84b !important;
 
   position: relative !important;
   z-index: 9999 !important;
 }
 
-/* ══════════════════════════════════════
-   BOTONS ULTRA VISIBLES
-══════════════════════════════════════ */
-
+/* BOTONES DE CARRIL */
 .lane-tap {
-  height: 88px !important;
+  height: 86px !important;
   width: 100% !important;
 
   display: flex !important;
@@ -30,52 +31,60 @@ style.textContent = `
   justify-content: center !important;
   flex-direction: column !important;
 
-  border-radius: 14px !important;
+  border-radius: 10px !important;
 
-  /* 🔥 CONTRAST ALT */
-  background: #ffffff !important;
-  border: 3px solid #ffd54a !important;
+  /* estilo oscuro elegante */
+  background: linear-gradient(145deg, #0e0c0a, #060504) !important;
+  border: 1px solid rgba(200,168,75,0.25) !important;
 
   box-shadow:
-    0 6px 18px rgba(0,0,0,0.4),
-    inset 0 0 0 2px rgba(255, 213, 74, 0.25);
+    inset 0 0 10px rgba(0,0,0,0.6),
+    0 6px 20px rgba(0,0,0,0.4);
 
+  cursor: pointer !important;
   user-select: none !important;
-  -webkit-user-select: none !important;
-
   -webkit-tap-highlight-color: transparent !important;
   touch-action: manipulation !important;
 
-  cursor: pointer !important;
+  transition: all 0.15s ease !important;
 }
 
-/* 🔥 TEXT MOLT LLEGIBLE */
+/* TEXTO TECLA */
 .lane-tap .kt {
-  font-family: Arial, sans-serif !important;
-  font-size: 18px !important;
-  font-weight: 900 !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
 
-  color: #000 !important;
-  opacity: 1 !important;
-
-  text-shadow: none !important;
+  color: rgba(200,168,75,0.6) !important;
 }
 
-/* 🔥 QUAN TOQUES */
+/* HOVER SUAVE */
+.lane-tap:hover {
+  transform: translateY(-2px);
+  border-color: #c8a84b !important;
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.5),
+    0 0 12px rgba(200,168,75,0.15);
+}
+
+/* CLICK */
 .lane-tap:active {
-  transform: scale(0.95);
-  background: #ffe27a !important;
+  transform: scale(0.96);
+  background: rgba(200,168,75,0.12) !important;
 }
 
 /* HIT */
 .lane-tap.hit {
-  background: #ffd54a !important;
-  color: #000 !important;
+  background: rgba(200,168,75,0.25) !important;
+  border-color: #c8a84b !important;
+  box-shadow: 0 0 18px rgba(200,168,75,0.4);
 }
 
 /* MISS */
 .lane-tap.miss-flash {
-  background: #ff3b3b !important;
+  background: rgba(180,20,20,0.25) !important;
+  border-color: rgba(255,80,80,0.6) !important;
 }
 `;
   document.head.appendChild(style);
