@@ -6,12 +6,12 @@ const SONGS = [
     id: 'bequetero',
     title: 'El Bequetero',
     artist: 'Les Santes de Mataró',
-    audioSrc: './../audio/Bequetero.mp3',
-    audioSrcEx: './../audio/BequeteroX2.mp3',
-    videoSrc: './../video/Bequetero.mp4',
+    audioSrc: 'https://drakefistfire.github.io/web/audio/Bequetero.mp3',
+    audioSrcEx: 'https://drakefistfire.github.io/web/audio/BequeteroX2.mp3',
+    videoSrc: 'https://drakefistfire.github.io/web/video/Bequetero.mp4',
     bgColor: '#1a0a2e',
     bgGradient: 'linear-gradient(135deg,#1a0a2e,#0d1a0a)',
-    bgImage: './../public/Bequetero.png',
+    bgImage: 'https://drakefistfire.github.io/web/images/bequetero.png',
     duration: 119.85,
     dificultad: "Mitjana",
     categoria: "Les Santes",
@@ -23,12 +23,12 @@ const SONGS = [
     id: 'drac',
     title: 'El Drac',
     artist: 'Les Santes de Mataró',
-    audioSrc: '/../../../audio/Drac.mp3',
-    audioSrcEx: '/../../../audio/DracX2.mp3',
-    videoSrc: '/../../../video/Drac.mp4',
+    audioSrc: 'https://drakefistfire.github.io/web/audio/Drac.mp3',
+    audioSrcEx: 'https://drakefistfire.github.io/web/audio/DracX2.mp3',
+    videoSrc: 'https://drakefistfire.github.io/web/video/Drac.mp4',
     bgColor: '#1a0a2e',
     bgGradient: 'linear-gradient(135deg,#1a0a2e,#0d1a0a)',
-    bgImage: '/../../../public/Drac.png',
+    bgImage: 'https://drakefistfire.github.io/web/images/Drac.png',
     duration: 136.70,
     dificultad: "Mitjana",
     categoria: "Les Santes",
@@ -201,6 +201,8 @@ const SONGS = [
     notesHard: []
   }
 ];
+
+
 const LANE_COLORS   = ['#e8002d','#1a8fff','#00cc55','#ff8800'];
 const LANE_COLORS_A = ['rgba(232,0,45,0.14)','rgba(26,143,255,0.14)','rgba(0,204,85,0.14)','rgba(255,136,0,0.14)'];
 let currentCategory = 'ALL';
