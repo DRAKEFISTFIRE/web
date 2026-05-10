@@ -11,7 +11,7 @@ const SONGS = [
     videoSrc: '/../../../video/Bequetero.mp4',
     bgColor: '#1a0a2e',
     bgGradient: 'linear-gradient(135deg,#1a0a2e,#0d1a0a)',
-    bgImage: '/../../../public/Bequetero.png',
+    bgImage: '/../../../../../public/Bequetero.png',
     duration: 119.85,
     dificultad: "Mitjana",
     categoria: "Les Santes",
