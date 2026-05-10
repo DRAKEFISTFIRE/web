@@ -1145,6 +1145,18 @@
   color: #c8a84b;
 }
 
+.game-banner {
+    width: 100vw;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+}
+
 .banner-minisantes {
     margin-top: -15px;
 
