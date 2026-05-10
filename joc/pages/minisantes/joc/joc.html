@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minisantes - SANTES TILES</title>
+    <link rel="stylesheet" href="./css/joc.css">
+    <link rel="stylesheet" href="./css/nivell.css">
+    <link rel="stylesheet" href="./css/mobile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <!-- GAME BANNER -->
+    <div class="game-banner">
+        <div class="game-container">
+
+            <!-- ══ TITLE SCREEN ══ -->
+            <div id="screen-title" class="screen active">
+                <div id="title-bg"></div>
+                <canvas id="title-particles"></canvas>
+                <div class="title-content">
+                    <div class="title-festa">Festes de Les Santes · Mataró</div>
+                    <div class="title-main">LES<br><span>SANTES</span></div>
+                    <div class="title-sub">Santes Tiles</div>
+                    <div class="title-divider"><span>✦</span></div>
+                    <button class="btn-primary" id="btn-play">JUGAR</button>
+                    <button class="btn-primary" id="btn-config">CONFIGURA</button>
+                    <button class="btn-primary" id="btn-tutorial">TUTORIAL</button>
+
+                    <div class="title-keys">
+                        <span class="key-pill">A ←</span>
+                        <span class="key-pill">S ↓</span>
+                        <span class="key-pill">D →</span>
+                        <span class="key-pill">W ↑</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SELECT SCREEN ══ -->
+            <div id="screen-select" class="screen">
+                <div class="select-header">
+                    <button class="back-btn" id="btn-back-select">← TORNAR</button>
+                    <div class="select-title">SELECCIONA CANÇÓ</div>
+                    <div id="category-selector" class="category-selector">
+                    <button class="cat-btn" data-cat="ALL">Totes</button>
+                    <button class="cat-btn" data-cat="Les Santes">Les Santes</button>
+                    <button class="cat-btn" data-cat="Generals">Generals</button>
+                    <button class="cat-btn" data-cat="Sant Jordi">Sant Jordi</button>
+                    </div>
+                    <div class="difficulty-selector">
+                    <select id="difficulty">
+                        <option value="easy">Fácil</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="hard">Difícil</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="songs-grid" id="songs-grid"></div>
+                <div class="instructions-wrapper">
+                    <div class="instructions-header">
+                        <div class="instruccions-title">COM ES JUGA</div>
+                    </div>
+                   <div class="instructions-body">
+
+                    <div class="instructions-top">
+                        <div class="instructions-image">
+                            <img src="/../../../public/prova.png" alt="Com es juga">
+                        </div>
+
+                        <div class="instructions-explanation">
+                            <div class="inst-block">
+                                <h4>🎯 Objectiu</h4>
+                                <p>Prem les tecles quan les notes arriben a la zona inferior per sumar punts i combo.</p>
+                            </div>
+
+                            <div class="inst-block">
+                                <h4>⚠️ Evita errors</h4>
+                                <p>Si falles massa notes, perdràs vides. Mantén el ritme constant i evita errors.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="instructions-text">
+                        Toca o prem les tecles just en el moment perfecte.
+                    </div>
+
+                    <div class="instructions-keys">
+                        <div class="inst-key"><b>A</b><span>← esquerra</span></div>
+                        <div class="inst-key"><b>S</b><span>↓ centre</span></div>
+                        <div class="inst-key"><b>D</b><span>→ centre</span></div>
+                        <div class="inst-key"><b>W</b><span>↑ dreta</span></div>
+                    </div>
+
+                    <div class="instructions-tip">
+                        💡 Com més combo, més punts!
+                    </div>
+
+                </div>
+                </div><!-- /instructions-wrapper -->
+            </div><!-- /screen-select -->
+
+            <!-- ══ CONFIG SCREEN ══ -->
+            <div id="screen-config" class="screen">
+                <div class="select-header">
+                    <button class="back-btn" id="btn-back-config">← TORNAR</button>
+                    <div class="select-title">CONFIGURACIÓ DE TECLES</div>
+                </div>
+
+                <div class="config-body">
+                    <div class="config-intro">
+                        Fes clic sobre una tecla i prem la nova tecla al teclat per canviar-la. Prem <kbd>Esc</kbd> per cancel·lar.
+                    </div>
+
+                    <div class="config-lanes-preview">
+                        <div class="config-lane-preview" id="cfg-lane-preview-0" style="border-color:#e8002d22; background:rgba(232,0,45,0.06)">
+                            <span style="color:#e8002d">●</span>
+                            <span id="cfg-lane-label-0">A / ← Fletxa</span>
+                        </div>
+                        <div class="config-lane-preview" id="cfg-lane-preview-1" style="border-color:#1a8fff22; background:rgba(26,143,255,0.06)">
+                            <span style="color:#1a8fff">●</span>
+                            <span id="cfg-lane-label-1">S / ↓ Fletxa</span>
+                        </div>
+                        <div class="config-lane-preview" id="cfg-lane-preview-2" style="border-color:#00cc5522; background:rgba(0,204,85,0.06)">
+                            <span style="color:#00cc55">●</span>
+                            <span id="cfg-lane-label-2">D / → Fletxa</span>
+                        </div>
+                        <div class="config-lane-preview" id="cfg-lane-preview-3" style="border-color:#ff880022; background:rgba(255,136,0,0.06)">
+                            <span style="color:#ff8800">●</span>
+                            <span id="cfg-lane-label-3">W / ↑ Fletxa</span>
+                        </div>
+                    </div>
+
+                    <div class="config-table-header">
+                        <span>Carril</span>
+                        <span>Tecla primària</span>
+                        <span>Tecla secundària</span>
+                    </div>
+
+                    <div id="config-keys-container"></div>
+
+                    <div class="config-footer">
+                        <button class="btn-secondary" id="btn-reset-keys">↺ RESTAURAR PREDETERMINADES</button>
+                    </div>
+                </div>
+            </div><!-- /screen-config -->
+
+            <!-- ══ GAME SCREEN ══ -->
+            <div id="screen-game" class="screen">
+                <video id="game-video-bg" autoplay loop muted playsinline></video>
+                <div id="game-overlay"></div>
+                <div class="game-ui">
+                    <div id="game-hud">
+                        <div class="hud-left">
+                            <div class="hud-song" id="hud-song-name">BEQUETERO</div>
+                            <div class="hud-score" id="hud-score">0</div>
+                        </div>
+                        <div class="hud-right">
+                            <div class="hud-lives" id="hud-lives">♥♥♥</div>
+                            <div class="hud-combo" id="hud-combo"></div>
+                            <div class="hud-accuracy" id="hud-acc"></div>
+                        </div>
+                    </div>
+                    <div id="progress-bar"><div id="progress-fill"></div></div>
+                    <div id="canvas-area">
+                        <canvas id="game-canvas"></canvas>
+                        <div id="speed-badge">2×</div>
+                    </div>
+                    <div id="lane-bar">
+                        <div class="lane-tap" id="lt0" ontouchstart="tapLane(0,event)" onmousedown="tapLane(0,event)"><span class="kt">A / ←</span></div>
+                        <div class="lane-tap" id="lt1" ontouchstart="tapLane(1,event)" onmousedown="tapLane(1,event)"><span class="kt">S / ↓</span></div>
+                        <div class="lane-tap" id="lt2" ontouchstart="tapLane(2,event)" onmousedown="tapLane(2,event)"><span class="kt">D / →</span></div>
+                        <div class="lane-tap" id="lt3" ontouchstart="tapLane(3,event)" onmousedown="tapLane(3,event)"><span class="kt">W / ↑</span></div>
+                    </div>
+                </div>
+            </div><!-- /screen-game -->
+
+            <!-- ══ RESULT SCREEN ══ -->
+            <div id="screen-result" class="screen">
+                <div class="result-content">
+                    <div class="result-label">Resultat</div>
+                    <div class="result-song" id="res-song"></div>
+                    <div class="result-stars" id="res-stars"></div>
+                    <div class="result-score" id="res-score"></div>
+                    <div class="result-score-label">PUNTS</div>
+                    <div class="result-stats">
+                        <div class="rstat"><div class="rstat-val" id="res-perfect">0</div><div class="rstat-lbl">Perfect</div></div>
+                        <div class="rstat"><div class="rstat-val" id="res-great">0</div><div class="rstat-lbl">Great</div></div>
+                        <div class="rstat"><div class="rstat-val" id="res-miss">0</div><div class="rstat-lbl">Fallo</div></div>
+                    </div>
+                    <div class="unlock-banner" id="unlock-banner"></div>
+                    <div class="result-btns">
+                        <button class="btn-secondary" id="btn-res-menu">MENÚ</button>
+                        <button class="btn-primary" id="btn-res-retry">TORNAR A JUGAR</button>
+                    </div>
+                </div>
+            </div><!-- /screen-result -->
+
+        </div><!-- /game-container -->
+    </div><!-- /game-banner -->
+
+</section>
+<!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="/../../../public/looSANTES.png" alt="Les Santes">
+            </div>
+            <div class="footer-nav">
+                <a href="#">Les Santes 2026</a>
+                <a href="#">Fotos i videos</a>
+                <a href="#">Minisantes</a>
+                <a href="#">La Festa</a>
+                <a href="#">Contacte</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><img src="/../../../public/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="/../../../public/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="/../../../public/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="/../../../public/linkedin.png" alt="LinkedIn"></a>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <p>Copyright © 2023 BRIX Templates | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+<script src="./js/joc.js"></script>
+<script src="./js/tutorial.js"></script>
+
+</body>
+</html>

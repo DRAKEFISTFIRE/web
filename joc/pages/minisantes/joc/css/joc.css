@@ -1,0 +1,441 @@
+/* Basic reset to remove default browser margins */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Titillium Web', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FDF5E6;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Spaces out logo, links, and search */
+    align-items: center; /* Vertically centers the content */
+    background-color: #414040; /* Dark blue/gray background */
+    padding: 15px 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: sticky;
+}
+
+/* Brand/Logo styling */
+.navbar-brand a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-logo {
+    width: 120px;   /* Change this value to whatever looks best */
+    height: auto;    /* This keeps the proportions correct so it doesn't look squished */
+    display: block;  /* Removes extra space at the bottom of the image */
+}
+
+/* Links container */
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 25px; /* Space between each link */
+}
+
+/* Individual links */
+.navbar-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for links */
+.navbar-links a:hover {
+    color: #ffffff;
+}
+
+/* Search container */
+.navbar-search {
+    display: flex;
+    gap: 8px; /* Space between input and button */
+}
+
+/* Search input field */
+.navbar-search input {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    background-color: #414040;
+    color: #ffffff;
+}
+
+.navbar-search input:focus {
+    border-color: #3498db;
+}
+
+.search-container {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* 250px para filtros, 1 fracción para el resto */
+  gap: 30px;
+}
+
+.cartel {
+  width: 100%;
+}
+
+.results-grid {
+    display: grid;
+    /* Creamos 3 columnas de igual tamaño */
+    grid-template-columns: repeat(3, 1fr); 
+    
+    /* Opcional: Si quieres que las filas tengan una altura fija */
+    /* grid-template-rows: repeat(2, 400px); */
+    
+    gap: 25px; /* Espacio entre las tarjetas */
+    padding: 40px;
+    max-width: 1200px; /* Centramos el grid para que no sea infinito */
+    margin: 0 auto;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-info p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+
+/* Esto ya lo tenías, se aplica a todos los items de la lista */
+.checkbox-item input {
+    display: none;
+}
+
+.checkbox-item label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-bottom: 5px; /* Separación entre filas */
+}
+
+.img-box {
+    width: 25px;
+    height: 25px;
+    background-image: url('public/diable_uncheck.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.2s ease;
+    margin-left: 10px;
+}
+
+/* El selector "+" busca al label que está justo después del input que ha sido clickeado */
+.checkbox-item input:checked + label .img-box {
+    background-image: url('public/diable_check.svg');
+    transform: scale(1.1);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* HEADER */
+.header {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    align-items: center;
+    gap: 20px;
+}
+
+.header .img-box {
+    width: 100%;
+}
+
+.header .img-box img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* TITLE */
+.title {
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.header h2 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 8px;
+}
+
+/* LINE */
+hr {
+    margin: 30px 0;
+    border: none;
+    border-top: 2px solid #ddd;
+}
+
+/* INFO */
+.info {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 30px;
+    align-items: center;
+}
+
+.info h3 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.info p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.info-img img {
+    width: 260px;
+    height: 170px;
+    border-radius: 12px;
+}
+
+/* GAME BANNER */
+.game-banner {
+    margin-top: 40px;
+}
+
+.game-banner img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+.header-img img {
+    width: 240px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.header-img.left {
+    margin-left: 20px;
+}
+
+.header-img.right {
+    margin-right: 20px;
+}
+/* Footer */
+    .footer {
+        background-color: #414040;
+        padding: 60px 80px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .footer-logo img {
+        width: 220px;
+        height: auto;
+    }
+
+    .footer-nav {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-nav a {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 18px;
+        color: #9795b5;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .footer-nav a:hover {
+        color: white;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 16px;
+    }
+
+    .footer-social a {
+        width: 36px;
+        height: 36px;
+    }
+
+    .footer-social img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .footer-bottom {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-divider {
+        width: 100%;
+        height: 1px;
+        background-color: #9795b5;
+        margin-bottom: 20px;
+    }
+
+    .footer-bottom p {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 18px;
+        color: #9795b5;
+    }
+
+    /* ========================= */
+/* MOBILE (hasta 768px) */
+/* ========================= */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .navbar-search {
+        width: 100%;
+    }
+
+    .navbar-search input {
+        width: 100%;
+    }
+
+    /* GRID PRINCIPAL */
+    .search-container {
+        grid-template-columns: 1fr; /* Todo en una columna */
+    }
+
+    /* CARDS */
+    .results-grid {
+        grid-template-columns: 1fr; /* 1 card por fila */
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .card img {
+        height: 160px;
+    }
+
+    /* HEADER */
+    .header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .header h2 {
+        font-size: 16px;
+    }
+
+    .header-img {
+        display: none; /* Quitamos imágenes laterales en móvil */
+    }
+
+    /* INFO SECTION */
+    .info {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .info-img img {
+        width: 100%;
+        height: auto;
+        margin-top: 15px;
+    }
+
+    .info p {
+        font-size: 14px;
+    }
+
+    /* GAME BANNER */
+    .game-banner img {
+        border-radius: 12px;
+    }
+
+    /* FOOTER */
+    .footer {
+        padding: 40px 20px;
+    }
+
+    .footer-nav {
+        gap: 20px;
+    }
+
+    .footer-nav a {
+        font-size: 16px;
+    }
+
+    .footer-logo img {
+        width: 160px;
+    }
+
+    .footer-bottom p {
+        font-size: 14px;
+    }
+}

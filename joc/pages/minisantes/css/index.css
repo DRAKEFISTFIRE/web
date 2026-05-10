@@ -1,0 +1,371 @@
+/* Basic reset to remove default browser margins */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Titillium Web', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Spaces out logo, links, and search */
+    align-items: center; /* Vertically centers the content */
+    background-color: #414040; /* Dark blue/gray background */
+    padding: 15px 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: sticky;
+}
+
+/* Brand/Logo styling */
+.navbar-brand a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-logo {
+    width: 120px;   /* Change this value to whatever looks best */
+    height: auto;    /* This keeps the proportions correct so it doesn't look squished */
+    display: block;  /* Removes extra space at the bottom of the image */
+}
+
+/* Links container */
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 25px; /* Space between each link */
+}
+
+/* Individual links */
+.navbar-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for links */
+.navbar-links a:hover {
+    color: #ffffff;
+}
+
+/* Search container */
+.navbar-search {
+    display: flex;
+    gap: 8px; /* Space between input and button */
+}
+
+/* Search input field */
+.navbar-search input {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    background-color: #414040;
+    color: #ffffff;
+}
+
+.navbar-search input:focus {
+    border-color: #3498db;
+}
+
+.search-container {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* 250px para filtros, 1 fracción para el resto */
+  gap: 30px;
+}
+
+.cartel {
+  width: 100%;
+}
+
+.results-grid {
+    display: grid;
+    /* Creamos 3 columnas de igual tamaño */
+    grid-template-columns: repeat(3, 1fr); 
+    
+    /* Opcional: Si quieres que las filas tengan una altura fija */
+    /* grid-template-rows: repeat(2, 400px); */
+    
+    gap: 25px; /* Espacio entre las tarjetas */
+    padding: 40px;
+    max-width: 1200px; /* Centramos el grid para que no sea infinito */
+    margin: 0 auto;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-info p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+
+/* Esto ya lo tenías, se aplica a todos los items de la lista */
+.checkbox-item input {
+    display: none;
+}
+
+.checkbox-item label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-bottom: 5px; /* Separación entre filas */
+}
+
+.img-box {
+    width: 25px;
+    height: 25px;
+    background-image: url('../../../public/diable_uncheck.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.2s ease;
+    margin-left: 10px;
+}
+
+/* El selector "+" busca al label que está justo después del input que ha sido clickeado */
+.checkbox-item input:checked + label .img-box {
+    background-image: url('public/diable_check.svg');
+    transform: scale(1.1);
+}
+
+.banner-minisantes {
+    margin-top: -15px;
+    background-image: url('../../../public/portadaMinisantes.png');
+    background-size: cover;        /* 🔥 clave */
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 500px;
+
+    padding: 50px 20px; /* mejor en móvil */
+
+    color: #000;
+}
+
+.banner-minisantes h1 {
+    font-size: 4rem;
+    font-weight: 800;
+}
+
+.banner-minisantes h2 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* CONTENIDO */
+.minisantes-content {
+    margin-top: -20px;
+    background-color: #FDF5E6;
+    padding: 50px 20px;
+}
+
+/* GRID */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* CONTENIDO */
+.minisantes-content {
+    background-color: #FDF5E6; /* El color amarillo claro/beige que pediste */
+    padding: 60px 20px;
+    font-family: 'Arial', sans-serif; /* O la fuente que uses en tu proyecto */
+}
+
+/* GRID */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px; /* Espaciado generoso como en la imagen */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* CARD */
+.mini-card {
+    border: solid 7px #8a9aff;
+    background: white;
+    border-radius: 40px; /* Bordes muy redondeados como en la captura */
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
+    transition: transform 0.3s ease;
+    padding-bottom: 25px !important; /* Espacio extra al final */
+}
+
+
+.mini-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Contenedor de Imagen */
+.image-wrapper {
+    padding: 15px; /* Margen interno para que la imagen no toque el borde de la card */
+}
+
+.mini-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain; /* Para que las ilustraciones se vean enteras y limpias */
+    border-radius: 25px !important; /* Bordes redondeados también en la imagen */
+}
+
+/* Body */
+.mini-card-body {
+    padding: 10px 30px;
+}
+
+.mini-card-body h3 {
+    font-size: 1.1rem;
+    color: #cc2222; /* Rojo oscuro/intenso para los títulos */
+    font-weight: 900;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.mini-card-body p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    font-style: italic; /* Las descripciones suelen ser ligeras */
+}
+
+/* Botón "JUGA" */
+.btn-juga {
+    background-color: #8a9aff; /* Azul lila de la imagen */
+    color: white;
+    border: none;
+    padding: 10px 35px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(138, 154, 255, 0.4);
+    transition: background 0.3s;
+    text-decoration: none;
+
+}
+
+.btn-juga:hover {
+    background-color: #6d7fe6;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer */
+    .footer {
+        background-color: #414040;
+        padding: 60px 80px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .footer-logo img {
+        width: 220px;
+        height: auto;
+    }
+
+    .footer-nav {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-nav a {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 18px;
+        color: #9795b5;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .footer-nav a:hover {
+        color: white;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 16px;
+    }
+
+    .footer-social a {
+        width: 36px;
+        height: 36px;
+    }
+
+    .footer-social img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .footer-bottom {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-divider {
+        width: 100%;
+        height: 1px;
+        background-color: #9795b5;
+        margin-bottom: 20px;
+    }
+
+    .footer-bottom p {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 18px;
+        color: #9795b5;
+    }

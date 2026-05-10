@@ -1,4 +1,10 @@
 // Mismo efecto de estrellas que en index.js para continuidad visual
+window.addEventListener("DOMContentLoaded", () => {
+  if (window.location.pathname === "/joc") {
+    window.location.href = "../joc/pages/minisantes/joc/joc.html";
+  }
+});
+
 
 function createStar() {
   const star = document.createElement('div');
