@@ -1144,7 +1144,7 @@
 
 .banner-minisantes {
     margin-top: -15px;
-    background-image: url('./images/banner-joc.png');
+    background-image: url('https://drakefistfire.github.io/web/images/banner-joc.png');
     background-size: cover;        /* clau: omple tota la secció */
     background-position: center;
     background-repeat: no-repeat;
