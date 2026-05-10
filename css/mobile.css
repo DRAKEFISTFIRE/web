@@ -886,3 +886,71 @@ html, body {
     transition: opacity 0.1s;
   }
 }
+
+/* ══════════════════════════════════════
+   MOBILE FIX — LANE BUTTONS VISIBLES
+══════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  #lane-bar {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px !important;
+    padding: 8px !important;
+
+    background: #111 !important;
+    border-top: 3px solid #ffd54a !important;
+
+    position: relative !important;
+    z-index: 9999 !important;
+  }
+
+  .lane-tap {
+    height: 92px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+
+    border-radius: 12px !important;
+
+    /* 🔥 MOLT VISIBLES */
+    background: #ffffff !important;
+    border: 3px solid #ffd54a !important;
+
+    box-shadow:
+      0 6px 14px rgba(0,0,0,0.25),
+      inset 0 0 0 2px rgba(255, 213, 74, 0.25);
+
+    user-select: none !important;
+    -webkit-user-select: none !important;
+
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+
+  /* TEXTO SUPER LEGIBLE */
+  .lane-tap .kt {
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    color: #111 !important;
+    opacity: 1 !important;
+    letter-spacing: 1px;
+  }
+
+  /* EFECTE TOC */
+  .lane-tap:active {
+    transform: scale(0.94);
+    background: #ffe27a !important;
+  }
+
+  /* HIT FEEDBACK */
+  .lane-tap.hit {
+    background: #ffd54a !important;
+    color: #000 !important;
+    transform: scale(0.95);
+  }
+
+}
