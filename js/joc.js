@@ -1142,8 +1142,15 @@ function endGame() {
 const keysHeld = new Set();
 // keydown is defined above (after CONFIG SCREEN section) to handle config first
 document.addEventListener('keyup', e => keysHeld.delete(e.key));
-document.getElementById('lane-bar').addEventListener('touchstart', e=>e.preventDefault(), {passive:false});
-
+document.getElementById('lane-bar').addEventListener('touchstart', function(e) {
+  e.preventDefault();
+  var rect = e.currentTarget.getBoundingClientRect();
+  Array.from(e.changedTouches).forEach(function(t) {
+    var x = t.clientX - rect.left;
+    var lane = Math.min(3, Math.max(0, Math.floor(x / rect.width * 4)));
+    tapLane(lane, null);
+  });
+}, { passive: false });
 // ═══════════════════════════════════
 // NAVIGATION
 // ═══════════════════════════════════
@@ -1176,18 +1183,3 @@ window.addEventListener('resize', ()=>{ if(document.getElementById('screen-game'
 // Initialize lane bar labels on load
 updateLaneBarLabels();
 
-document.addEventListener('touchstart', function(e) {
-  // Pinta tots els carrils de verd brillant
-  for (var i = 0; i < 4; i++) {
-    var el = document.getElementById('lt' + i);
-    if (el) el.style.background = 'lime';
-  }
-  // Mostra info al HUD
-  var hud = document.getElementById('hud-score');
-  if (hud) {
-    var t = e.touches[0];
-    var touched = document.elementFromPoint(t.clientX, t.clientY);
-    hud.textContent = (touched ? touched.id || touched.tagName : '?') + 
-                      ' run:' + (typeof G !== 'undefined' ? G.running : 'NO');
-  }
-}, { passive: true });
