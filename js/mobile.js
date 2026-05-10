@@ -3,54 +3,83 @@
 (function () {
 
   var style = document.createElement('style');
-  style.textContent = `
-    #lane-bar {
-      display: grid !important;
-      grid-template-columns: repeat(4, 1fr) !important;
-      gap: 2px !important;
-      padding: 2px !important;
-      background: rgba(0,0,0,0.92) !important;
-      border-top: 1px solid rgba(200,168,75,0.15) !important;
-      position: relative !important;
-      z-index: 999 !important;
-    }
-    .lane-tap {
-      height: 90px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      justify-content: center !important;
-      border-radius: 3px !important;
-      background: rgba(200,168,75,0.04) !important;
-      border: 1px solid rgba(200,168,75,0.06) !important;
-      touch-action: manipulation !important;
-      -webkit-tap-highlight-color: transparent !important;
-      user-select: none !important;
-      -webkit-user-select: none !important;
-      cursor: pointer !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      width: 100% !important;
-      box-sizing: border-box !important;
-      -webkit-appearance: none !important;
-      appearance: none !important;
-      outline: none !important;
-    }
-    .lane-tap .kt {
-      font-family: 'Cinzel', serif;
-      font-size: 10px;
-      color: rgba(200,168,75,0.3);
-      letter-spacing: 1px;
-      pointer-events: none;
-    }
-    .lane-tap.hit {
-      background: rgba(200,168,75,0.3) !important;
-      border-color: rgba(200,168,75,0.5) !important;
-    }
-    .lane-tap.miss-flash {
-      background: rgba(180,20,20,0.25) !important;
-    }
-  `;
+style.textContent = `
+#lane-bar {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 6px !important;
+  padding: 8px !important;
+
+  background: #0d0d0d !important;
+  border-top: 3px solid #ffd54a !important;
+
+  position: relative !important;
+  z-index: 999 !important;
+}
+
+/* ══════════════════════════════════════
+   BOTONS MÒBIL — MOLT VISIBLES
+══════════════════════════════════════ */
+
+.lane-tap {
+  height: 92px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 12px !important;
+
+  /* 🔥 ALTA VISIBILITAT */
+  background: #ffffff !important;
+  border: 3px solid #ffd54a !important;
+
+  box-shadow:
+    0 6px 16px rgba(0,0,0,0.35),
+    inset 0 0 0 2px rgba(255, 213, 74, 0.25);
+
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: transparent !important;
+
+  user-select: none !important;
+  -webkit-user-select: none !important;
+
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* TEXT CLAR I LLEGIBLE */
+.lane-tap .kt {
+  font-family: 'Arial', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  color: #111 !important;
+  letter-spacing: 1px;
+  opacity: 1 !important;
+}
+
+/* EFECTE TOC */
+.lane-tap:active {
+  transform: scale(0.94);
+  background: #ffe27a !important;
+}
+
+/* HIT FEEDBACK */
+.lane-tap.hit {
+  background: #ffd54a !important;
+  border-color: #ffcc00 !important;
+  transform: scale(0.95);
+}
+
+/* MISS FEEDBACK */
+.lane-tap.miss-flash {
+  background: #ff4d4d !important;
+  border-color: #ff1a1a !important;
+}
+`;
   document.head.appendChild(style);
 
   /* Fix viewport */
