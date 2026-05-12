@@ -438,3 +438,51 @@
   .result-score   { font-size: 32px; }
   .result-stars   { font-size: 20px; margin: 2px 0; }
 }
+
+/* ─────────────────────────────
+   PAUSE OVERLAY MOBILE FIX
+───────────────────────────── */
+@media (max-width: 768px) {
+
+  #pause-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+
+    width: 100vw;
+    height: 100svh;
+
+    z-index: 999999 !important;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 24px;
+    gap: 14px;
+
+    background: rgba(0,0,0,0.82);
+
+    text-align: center;
+  }
+
+  #pause-overlay.active {
+    display: flex !important;
+  }
+
+  #pause-overlay h2 {
+    font-size: clamp(1.4rem, 7vw, 2rem);
+    line-height: 1.1;
+    letter-spacing: .08em;
+  }
+
+  #pause-overlay button {
+    width: min(280px, 82vw);
+    min-width: unset;
+
+    padding: 14px 18px;
+
+    font-size: 0.95rem;
+    border-radius: 12px;
+  }
+}

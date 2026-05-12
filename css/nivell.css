@@ -791,8 +791,8 @@ section {
 
 #canvas-area {
   flex: 1;
-  position: relative;  /* ← afegeix això si no hi és */
-  overflow: hidden;
+  position: relative;
+  overflow: visible;
 }
 /* ══════════════════════════════════════
    RESULT SCREEN
