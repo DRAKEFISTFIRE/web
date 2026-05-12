@@ -161,11 +161,21 @@
                             <div class="hud-combo" id="hud-combo"></div>
                             <div class="hud-accuracy" id="hud-acc"></div>
                         </div>
+                        <div id="hud-controls" style="display:flex;gap:8px;align-items:center;">
+                            <button id="btn-pause" onclick="togglePause()">⏸</button>
+                            <button id="btn-back-game" onclick="exitGame()">✕</button>
+                        </div>
                     </div>
+                    
                     <div id="progress-bar"><div id="progress-fill"></div></div>
                     <div id="canvas-area">
                         <canvas id="game-canvas"></canvas>
                         <div id="speed-badge">2×</div>
+                        <div id="pause-overlay">
+                        <h2>⏸ PAUSA</h2>
+                        <button onclick="togglePause()">▶ Continuar</button>
+                        <button onclick="exitGame()">✕ Sortir</button>
+                        </div>
                     </div>
                         <div id="lane-bar">
                         <button class="lane-tap" id="lt0" type="button"><span class="kt">A / ←</span></button>
@@ -173,6 +183,7 @@
                         <button class="lane-tap" id="lt2" type="button"><span class="kt">D / →</span></button>
                         <button class="lane-tap" id="lt3" type="button"><span class="kt">W / ↑</span></button>
                         </div>
+
                                         </div>
             </div><!-- /screen-game -->
 

@@ -833,6 +833,74 @@ for (let i = 0; i < notes.length; i++) {
   }
 }
 
+function togglePause() {
+  if (!G.running && !G.paused) return; // juego no iniciado
+
+  G.paused = !G.paused;
+  const overlay = document.getElementById('pause-overlay');
+  const btn = document.getElementById('btn-pause');
+
+  if (G.paused) {
+    G.running = false;
+    if (G.animId) { cancelAnimationFrame(G.animId); G.animId = null; }
+    if (G.audio) {
+      G._pauseTime = G.audio.currentTime;
+      G.audio.pause();
+    }
+    if (G.timerMode) {
+      G._pausedAt = performance.now();
+    }
+    const vid = document.getElementById('game-video-bg');
+    if (vid) vid.pause();
+    overlay.classList.add('active');
+    if (btn) btn.textContent = '▶';
+  } else {
+    overlay.classList.remove('active');
+    if (btn) btn.textContent = '⏸';
+    if (G.audio) {
+      G.audio.play().catch(() => {});
+    }
+    if (G.timerMode && G._pausedAt) {
+      // Compensar el tiempo pausado
+      G.t0 += performance.now() - G._pausedAt;
+      G._pausedAt = null;
+    }
+    const vid = document.getElementById('game-video-bg');
+    if (vid) vid.play().catch(() => {});
+    G.running = true;
+    G.animId = requestAnimationFrame(gameLoop);
+  }
+}
+
+function exitGame() {
+  G.running = false;
+  G.paused = false;
+  if (G.animId) { cancelAnimationFrame(G.animId); G.animId = null; }
+  if (G.audio) { stopAudio(G.audio, 0); G.audio = null; }
+  const vid = document.getElementById('game-video-bg');
+  if (vid) { try { vid.pause(); vid.src = ''; } catch(e) {} }
+  document.getElementById('pause-overlay').classList.remove('active');
+  buildSongGrid();
+  showScreen('select');
+}
+
+document.addEventListener('keydown', (e) => {
+  // Evita repetir si se mantiene la tecla presionada
+  if (e.repeat) return;
+
+  // ESPACIO = pause
+  if (e.code === 'Space') {
+    e.preventDefault(); // evita scroll de la página
+    togglePause();
+  }
+
+  // ESC = salir
+  if (e.code === 'Escape') {
+    e.preventDefault();
+    exitGame();
+  }
+});
+
 
 function roundRect(ctx,x,y,w,h,r) {
   ctx.beginPath(); ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y);

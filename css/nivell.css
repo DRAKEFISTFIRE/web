@@ -732,7 +732,68 @@ section {
 .lane-tap.miss-flash {
     background: rgba(180,20,20,0.25) !important;
 }
+#pause-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: 50;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
 
+#pause-overlay.active {
+  display: flex;
+}
+
+#pause-overlay h2 {
+  font-family: 'Cinzel Decorative', serif;
+  color: #c8a84b;
+  font-size: 1.8rem;
+  letter-spacing: .12em;
+  margin: 0;
+}
+
+#pause-overlay button {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(200,168,75,0.4);
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 32px;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  min-width: 200px;
+  transition: background 0.15s;
+  letter-spacing: 1px;
+}
+
+#pause-overlay button:hover {
+  background: rgba(200,168,75,0.18);
+}
+
+#hud-controls button {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#hud-controls button:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+#canvas-area {
+  flex: 1;
+  position: relative;  /* ← afegeix això si no hi és */
+  overflow: hidden;
+}
 /* ══════════════════════════════════════
    RESULT SCREEN
 ══════════════════════════════════════ */
