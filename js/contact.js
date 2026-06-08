@@ -5,7 +5,7 @@ const services = {
     subtitle: "Modern interfaces, animations and pixel-perfect UX.",
     description: "I build fast, responsive and animated interfaces using React, Vue and modern frontend architecture.",
     tags: ["React", "Vue", "TypeScript", "UI/UX", "Animations"],
-    banner: "/images/frontend-form.jpg",
+    banner: "/web/images/frontend-form.jpg",
     video: "./images/frontend.mp4",
 
     fields: `
