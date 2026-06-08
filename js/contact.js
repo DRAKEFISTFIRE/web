@@ -215,142 +215,132 @@ const services = {
 
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+const params     = new URLSearchParams(window.location.search);
+const service    = params.get("service") || "frontend";
+const data       = services[service];
+const hero       = document.querySelector(".contact-hero");
+const clientType = document.getElementById("clientType");
+const companyField = document.getElementById("companyField");
+const form       = document.getElementById("contactForm");
 
-  const params = new URLSearchParams(window.location.search);
-  const service = params.get("service") || "frontend";
-  const clientType = document.getElementById("clientType");
-  const companyField = document.getElementById("companyField");
-  const data = services[service];
-  const hero = document.querySelector(".contact-hero");
-  const form = document.getElementById("contactForm");
+function updateCompanyField() {
+  const value = clientType.value;
+  const show = value === "company" || value === "freelancer" || value === "other";
+  companyField.style.display = show ? "flex" : "none";
+}
 
-  function updateCompanyField() {
-    const value = clientType.value;
-    const showCompany = value === "company" || value === "freelancer" || value === "other";
-    companyField.style.display = showCompany ? "flex" : "none";
+function detectBanner() {
+  if (data.banner) {
+    hero.style.backgroundImage = `url(${data.banner})`;
+    hero.style.backgroundSize = "cover";
+    hero.style.backgroundPosition = "center";
   }
+}
 
-  function detectBanner() {
-    if (data.banner) {
-      hero.style.backgroundImage = `url(${data.banner})`;
-      hero.style.backgroundSize = "cover";
-      hero.style.backgroundPosition = "center";
-    } else {
-      hero.style.backgroundImage = "url(../images/default-banner.png)";
-    }
-  }
+function showError(fieldId, message) {
+  const field = document.getElementById(fieldId);
+  const error = document.getElementById(`${fieldId}Error`);
+  if (field) field.classList.add("input-error");
+  if (error) error.textContent = message;
+}
 
-  function showError(fieldId, message) {
-    const field = document.getElementById(fieldId);
-    const error = document.getElementById(`${fieldId}Error`);
-    if (field) field.classList.add("input-error");
-    if (error) error.textContent = message;
-  }
+function clearAllErrors() {
+  document.querySelectorAll(".field-error").forEach(el => { el.textContent = ""; });
+  document.querySelectorAll(".input-error").forEach(el => { el.classList.remove("input-error"); });
+}
 
-  function clearAllErrors() {
-    document.querySelectorAll(".field-error").forEach(el => { el.textContent = ""; });
-    document.querySelectorAll(".input-error").forEach(el => { el.classList.remove("input-error"); });
-  }
+function validateForm() {
+  clearAllErrors();
+  let valid = true;
+  const name        = document.getElementById("name").value.trim();
+  const email       = document.getElementById("email").value.trim();
+  const country     = document.getElementById("country").value.trim();
+  const description = document.getElementById("projectDescription").value.trim();
+  const client      = document.getElementById("clientType").value;
+  const company     = document.getElementById("company")?.value.trim();
 
-  function validateForm() {
-    clearAllErrors();
-    let valid = true;
+  if (name.length < 2)   { showError("name", "Please enter your name."); valid = false; }
+  if (!email)            { showError("email", "Email is required."); valid = false; }
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError("email", "Invalid email address."); valid = false; }
+  if (!country)          { showError("country", "Country is required."); valid = false; }
+  if (["company","freelancer","other"].includes(client) && !company) { showError("company", "Company name is required."); valid = false; }
+  if (description.length < 30) { showError("projectDescription", "Please provide at least 30 characters."); valid = false; }
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const country = document.getElementById("country").value.trim();
-    const description = document.getElementById("projectDescription").value.trim();
-    const client = document.getElementById("clientType").value;
-    const company = document.getElementById("company")?.value.trim();
+  return valid;
+}
 
-    if (name.length < 2) { showError("name", "Please enter your name."); valid = false; }
-    if (!email) { showError("email", "Email is required."); valid = false; }
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError("email", "Invalid email address."); valid = false; }
-    if (!country) { showError("country", "Country is required."); valid = false; }
-    if (["company", "freelancer", "other"].includes(client) && !company) { showError("company", "Company name is required."); valid = false; }
-    if (description.length < 30) { showError("projectDescription", "Please provide at least 30 characters."); valid = false; }
-
-    return valid;
-  }
-
-  function collectServiceConfig() {
-    const config = {};
-    document.querySelectorAll("#dynamicFields .form-group").forEach(group => {
-      const label = group.querySelector("label")?.textContent?.trim();
-      if (!label) return;
-      const select = group.querySelector("select");
-      if (select) { config[label] = select.value; }
-      const checked = [...group.querySelectorAll("input[type='checkbox']:checked")]
-        .map(input => input.parentElement.textContent.trim());
-      if (checked.length) { config[label] = checked; }
-    });
-    return config;
-  }
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-
-    const button = form.querySelector(".contact-submit");
-    button.classList.add("loading");
-    button.innerHTML = "SENDING...";
-
-    const payload = {
-      service,
-      client: {
-        name: document.getElementById("name").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        type: document.getElementById("clientType").value,
-        company: document.getElementById("company")?.value.trim() || null,
-        country: document.getElementById("country").value.trim()
-      },
-      project: {
-        deadline: document.getElementById("deadline").value || null,
-        description: document.getElementById("projectDescription").value.trim(),
-        configuration: collectServiceConfig()
-      }
-    };
-
-    try {
-      const response = await fetch(
-        "https://backend-web-cw3n.onrender.com/api/contact",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        }
-      );
-
-      const resData = await response.json();
-      if (!response.ok) throw new Error(resData.message || "Request failed");
-
-      button.innerHTML = "REQUEST SENT ✓";
-      form.reset();
-      updateCompanyField();
-
-    } catch (error) {
-      console.error(error);
-      button.innerHTML = "ERROR - TRY AGAIN";
-      setTimeout(() => {
-        button.innerHTML = `SEND REQUEST <i class="fa-solid fa-arrow-right"></i>`;
-      }, 2500);
-    } finally {
-      button.classList.remove("loading");
-    }
+function collectServiceConfig() {
+  const config = {};
+  document.querySelectorAll("#dynamicFields .form-group").forEach(group => {
+    const label = group.querySelector("label")?.textContent?.trim();
+    if (!label) return;
+    const select = group.querySelector("select");
+    if (select) { config[label] = select.value; }
+    const checked = [...group.querySelectorAll("input[type='checkbox']:checked")]
+      .map(input => input.parentElement.textContent.trim());
+    if (checked.length) { config[label] = checked; }
   });
+  return config;
+}
 
-  // Init
-  document.getElementById("serviceTitle").textContent = data.title;
-  document.getElementById("serviceSubtitle").textContent = data.subtitle;
-  document.getElementById("serviceDescription").textContent = data.description;
-  document.getElementById("summaryService").textContent = data.title;
-  document.getElementById("serviceTags").innerHTML =
-    data.tags.map(t => `<div class="contact-tag">${t}</div>`).join("");
-  document.getElementById("dynamicFields").innerHTML = data.fields;
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (!validateForm()) return;
 
-  clientType.addEventListener("change", updateCompanyField);
-  updateCompanyField();
-  detectBanner();
+  const button = form.querySelector(".contact-submit");
+  button.classList.add("loading");
+  button.innerHTML = "SENDING...";
 
+  const payload = {
+    service,
+    client: {
+      name:    document.getElementById("name").value.trim(),
+      email:   document.getElementById("email").value.trim(),
+      type:    document.getElementById("clientType").value,
+      company: document.getElementById("company")?.value.trim() || null,
+      country: document.getElementById("country").value.trim()
+    },
+    project: {
+      deadline:      document.getElementById("deadline").value || null,
+      description:   document.getElementById("projectDescription").value.trim(),
+      configuration: collectServiceConfig()
+    }
+  };
+
+  try {
+    const response = await fetch(
+      "https://backend-web-cw3n.onrender.com/api/contact",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }
+    );
+    const resData = await response.json();
+    if (!response.ok) throw new Error(resData.message || "Request failed");
+    button.innerHTML = "REQUEST SENT ✓";
+    form.reset();
+    updateCompanyField();
+  } catch (error) {
+    console.error(error);
+    button.innerHTML = "ERROR - TRY AGAIN";
+    setTimeout(() => {
+      button.innerHTML = `SEND REQUEST <i class="fa-solid fa-arrow-right"></i>`;
+    }, 2500);
+  } finally {
+    button.classList.remove("loading");
+  }
 });
+
+// Init
+document.getElementById("serviceTitle").textContent       = data.title;
+document.getElementById("serviceSubtitle").textContent    = data.subtitle;
+document.getElementById("serviceDescription").textContent = data.description;
+document.getElementById("summaryService").textContent     = data.title;
+document.getElementById("serviceTags").innerHTML =
+  data.tags.map(t => `<div class="contact-tag">${t}</div>`).join("");
+document.getElementById("dynamicFields").innerHTML = data.fields;
+
+clientType.addEventListener("change", updateCompanyField);
+updateCompanyField();
+detectBanner();
