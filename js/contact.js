@@ -5,13 +5,11 @@ const services = {
     subtitle: "Modern interfaces, animations and pixel-perfect UX.",
     description: "I build fast, responsive and animated interfaces using React, Vue and modern frontend architecture.",
     tags: ["React", "Vue", "TypeScript", "UI/UX", "Animations"],
-    banner: "./web/images/frontend-form.jpg",
-    video: "./images/frontend.mp4",
-
+    banner: "/web/images/frontend-form.jpg",
+    video: "/web/images/frontend.mp4",
     fields: `
       <div class="contact-section">
         <div class="pd-section-tag">04 — FRONTEND CONFIGURATION</div>
-
         <div class="form-group">
           <label>Project Type</label>
           <div class="choice-grid">
@@ -22,7 +20,6 @@ const services = {
             <label><input type="checkbox"> Ecommerce</label>
           </div>
         </div>
-
         <div class="form-group">
           <label>Framework Preference</label>
           <select>
@@ -30,10 +27,9 @@ const services = {
             <option>Vue</option>
             <option>Angular</option>
             <option>No preference</option>
-            <option>I still don’t know</option>
+            <option>I still don't know</option>
           </select>
         </div>
-
         <div class="form-group">
           <label>UI/UX Design Needed?</label>
           <select>
@@ -51,23 +47,19 @@ const services = {
     subtitle: "Scalable APIs and system architecture.",
     description: "Robust backend systems, authentication, APIs and database design ready for production.",
     tags: ["Laravel", "Node.js", "Express", "MySQL", "MongoDB"],
-    banner: "./images/backend-form.jpg",
-
-
+    banner: "/web/images/backend-form.jpg",
     fields: `
       <div class="contact-section">
         <div class="pd-section-tag">04 — BACKEND CONFIGURATION</div>
-
         <div class="form-group">
           <label>API Type</label>
           <div class="choice-grid">
             <label><input type="checkbox"> REST API</label>
             <label><input type="checkbox"> GraphQL</label>
             <label><input type="checkbox"> WebSockets</label>
-            <label><input type="checkbox"> I still don’t know</label>
+            <label><input type="checkbox"> I still don't know</label>
           </div>
         </div>
-
         <div class="form-group">
           <label>Database</label>
           <div class="choice-grid">
@@ -75,11 +67,9 @@ const services = {
             <label><input type="checkbox"> PostgreSQL</label>
             <label><input type="checkbox"> MongoDB</label>
             <label><input type="checkbox"> Firebase</label>
-            <label><input type="checkbox"> I still don’t know</label>
-
+            <label><input type="checkbox"> I still don't know</label>
           </div>
         </div>
-
         <div class="form-group">
           <label>Authentication</label>
           <select>
@@ -97,12 +87,10 @@ const services = {
     subtitle: "Cross-platform apps with Flutter.",
     description: "Native-like mobile apps for Android and iOS with scalable architecture.",
     tags: ["Flutter", "Dart", "Android", "iOS"],
-    banner: "./images/mobile-form.jpg",
-
+    banner: "/web/images/mobile-form.jpg",
     fields: `
       <div class="contact-section">
         <div class="pd-section-tag">04 — MOBILE CONFIGURATION</div>
-
         <div class="form-group">
           <label>Platforms</label>
           <div class="choice-grid">
@@ -110,7 +98,6 @@ const services = {
             <label><input type="checkbox"> iOS</label>
           </div>
         </div>
-
         <div class="form-group">
           <label>Features</label>
           <div class="choice-grid">
@@ -119,7 +106,7 @@ const services = {
             <label><input type="checkbox"> Payments</label>
             <label><input type="checkbox"> Chat</label>
             <label><input type="checkbox"> Gamification</label>
-            <label><input type="checkbox"> I still don’t know</label>
+            <label><input type="checkbox"> I still don't know</label>
           </div>
         </div>
       </div>
@@ -131,12 +118,10 @@ const services = {
     subtitle: "Infrastructure and deployment systems.",
     description: "CI/CD, Docker, cloud infrastructure and scalable deployments.",
     tags: ["Docker", "CI/CD", "AWS", "Monitoring"],
-    banner: "./images/devops-form.jpg",
-
+    banner: "/web/images/devops-form.jpg",
     fields: `
       <div class="contact-section">
         <div class="pd-section-tag">04 — DEVOPS CONFIGURATION</div>
-
         <div class="form-group">
           <label>Infrastructure</label>
           <div class="choice-grid">
@@ -144,10 +129,9 @@ const services = {
             <label><input type="checkbox"> Kubernetes</label>
             <label><input type="checkbox"> CI/CD</label>
             <label><input type="checkbox"> Monitoring</label>
-            <label><input type="checkbox"> I still don’t know</label>
+            <label><input type="checkbox"> I still don't know</label>
           </div>
         </div>
-
         <div class="form-group">
           <label>Cloud Provider</label>
           <select>
@@ -155,7 +139,7 @@ const services = {
             <option>Google Cloud</option>
             <option>Azure</option>
             <option>DigitalOcean</option>
-            <option>I still don’t know</option>
+            <option>I still don't know</option>
           </select>
         </div>
       </div>
@@ -167,12 +151,10 @@ const services = {
     subtitle: "Smart automation & AI integrations.",
     description: "AI-powered systems: chatbots, automation and intelligent workflows.",
     tags: ["OpenAI", "Python", "LangChain"],
-    banner: "./images/ia-form.jpg",
-
+    banner: "/web/images/ia-form.jpg",
     fields: `
       <div class="contact-section">
         <div class="pd-section-tag">04 — AI CONFIGURATION</div>
-
         <div class="form-group">
           <label>AI Use Case</label>
           <select>
@@ -180,17 +162,16 @@ const services = {
             <option>Automation</option>
             <option>Content Generation</option>
             <option>Data Analysis</option>
-            <option>I still don’t know</option>
+            <option>I still don't know</option>
           </select>
         </div>
-
         <div class="form-group">
           <label>Model Provider</label>
           <div class="choice-grid">
             <label><input type="checkbox"> OpenAI</label>
             <label><input type="checkbox"> Claude</label>
             <label><input type="checkbox"> Local LLM</label>
-            <label><input type="checkbox"> I still don’t know</label>
+            <label><input type="checkbox"> I still don't know</label>
           </div>
         </div>
       </div>
@@ -202,12 +183,10 @@ const services = {
     subtitle: "End-to-end product development.",
     description: "From idea to launch: design, frontend, backend, DevOps and scaling.",
     tags: ["Architecture", "Design", "Full Stack", "Deployment"],
-    banner: "./images/fullstack-form.jpg",
-
+    banner: "/web/images/fullstack-form.jpg",
     fields: `
       <div class="contact-section">
         <div class="pd-section-tag">04 — PRODUCT CONFIGURATOR</div>
-
         <div class="form-group">
           <label>Project Stage</label>
           <select>
@@ -215,10 +194,9 @@ const services = {
             <option>MVP</option>
             <option>Existing Product</option>
             <option>Scaling</option>
-            <option>I still don’t know</option>
+            <option>I still don't know</option>
           </select>
         </div>
-
         <div class="form-group">
           <label>Needs</label>
           <div class="choice-grid">
@@ -228,7 +206,7 @@ const services = {
             <label><input type="checkbox"> Mobile</label>
             <label><input type="checkbox"> AI</label>
             <label><input type="checkbox"> DevOps</label>
-            <label><input type="checkbox"> I still don’t know</label>
+            <label><input type="checkbox"> I still don't know</label>
           </div>
         </div>
       </div>
@@ -245,61 +223,38 @@ const companyField = document.getElementById("companyField");
 const data = services[service];
 const hero = document.querySelector(".contact-hero");
 
-
 function updateCompanyField() {
   const value = clientType.value;
-
-  const showCompany =
-    value === "company" ||
-    value === "freelancer" ||
-    value === "other";
-
+  const showCompany = value === "company" || value === "freelancer" || value === "other";
   companyField.style.display = showCompany ? "flex" : "none";
 }
 
 function detectBanner() {
-    if (data.banner) {
+  if (data.banner) {
     hero.style.backgroundImage = `url(${data.banner})`;
     hero.style.backgroundSize = "cover";
     hero.style.backgroundPosition = "center";
-    } else {
-        hero.stye.backgroundImage = './images/default-banner.png';
-    }
+  } else {
+    hero.style.backgroundImage = "url(/web/images/default-banner.png)";
+  }
 }
-
 
 const form = document.getElementById("contactForm");
 
 function showError(fieldId, message) {
   const field = document.getElementById(fieldId);
   const error = document.getElementById(`${fieldId}Error`);
-
   if (field) field.classList.add("input-error");
   if (error) error.textContent = message;
 }
 
-function clearError(fieldId) {
-  const field = document.getElementById(fieldId);
-  const error = document.getElementById(`${fieldId}Error`);
-
-  if (field) field.classList.remove("input-error");
-  if (error) error.textContent = "";
-}
-
 function clearAllErrors() {
-  document.querySelectorAll(".field-error").forEach(el => {
-    el.textContent = "";
-  });
-
-  document.querySelectorAll(".input-error").forEach(el => {
-    el.classList.remove("input-error");
-  });
+  document.querySelectorAll(".field-error").forEach(el => { el.textContent = ""; });
+  document.querySelectorAll(".input-error").forEach(el => { el.classList.remove("input-error"); });
 }
 
 function validateForm() {
-
   clearAllErrors();
-
   let valid = true;
 
   const name = document.getElementById("name").value.trim();
@@ -309,173 +264,91 @@ function validateForm() {
   const client = document.getElementById("clientType").value;
   const company = document.getElementById("company")?.value.trim();
 
-  if (name.length < 2) {
-    showError("name", "Please enter your name.");
-    valid = false;
-  }
-
-  if (!email) {
-    showError("email", "Email is required.");
-    valid = false;
-  } else if (
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-  ) {
-    showError("email", "Invalid email address.");
-    valid = false;
-  }
-
-  if (!country) {
-    showError("country", "Country is required.");
-    valid = false;
-  }
-
-  if (
-    ["company", "freelancer", "other"].includes(client) &&
-    !company
-  ) {
-    showError("company", "Company name is required.");
-    valid = false;
-  }
-
-  if (description.length < 30) {
-    showError(
-      "projectDescription",
-      "Please provide at least 30 characters."
-    );
-    valid = false;
-  }
+  if (name.length < 2) { showError("name", "Please enter your name."); valid = false; }
+  if (!email) { showError("email", "Email is required."); valid = false; }
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError("email", "Invalid email address."); valid = false; }
+  if (!country) { showError("country", "Country is required."); valid = false; }
+  if (["company", "freelancer", "other"].includes(client) && !company) { showError("company", "Company name is required."); valid = false; }
+  if (description.length < 30) { showError("projectDescription", "Please provide at least 30 characters."); valid = false; }
 
   return valid;
 }
 
 function collectServiceConfig() {
-
   const config = {};
-
-  document
-    .querySelectorAll("#dynamicFields .form-group")
-    .forEach(group => {
-
-      const label =
-        group.querySelector("label")?.textContent?.trim();
-
-      if (!label) return;
-
-      const select = group.querySelector("select");
-
-      if (select) {
-        config[label] = select.value;
-      }
-
-      const checked =
-        [...group.querySelectorAll("input[type='checkbox']:checked")]
-          .map(input =>
-            input.parentElement.textContent.trim()
-          );
-
-      if (checked.length) {
-        config[label] = checked;
-      }
-
-    });
-
+  document.querySelectorAll("#dynamicFields .form-group").forEach(group => {
+    const label = group.querySelector("label")?.textContent?.trim();
+    if (!label) return;
+    const select = group.querySelector("select");
+    if (select) { config[label] = select.value; }
+    const checked = [...group.querySelectorAll("input[type='checkbox']:checked")]
+      .map(input => input.parentElement.textContent.trim());
+    if (checked.length) { config[label] = checked; }
+  });
   return config;
 }
 
 form.addEventListener("submit", async (e) => {
-
   e.preventDefault();
-
   if (!validateForm()) return;
 
   const button = form.querySelector(".contact-submit");
-
   button.classList.add("loading");
   button.innerHTML = "SENDING...";
 
   const payload = {
     service,
-
     client: {
       name: document.getElementById("name").value.trim(),
       email: document.getElementById("email").value.trim(),
       type: document.getElementById("clientType").value,
-      company:
-        document.getElementById("company")?.value.trim() || null,
-      country:
-        document.getElementById("country").value.trim()
+      company: document.getElementById("company")?.value.trim() || null,
+      country: document.getElementById("country").value.trim()
     },
-
     project: {
-      deadline:
-        document.getElementById("deadline").value || null,
-
-      description:
-        document.getElementById("projectDescription")
-          .value
-          .trim(),
-
-      configuration:
-        collectServiceConfig()
+      deadline: document.getElementById("deadline").value || null,
+      description: document.getElementById("projectDescription").value.trim(),
+      configuration: collectServiceConfig()
     }
   };
 
   try {
-
     const response = await fetch(
       "https://backend-web-cw3n.onrender.com/api/contact",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       }
     );
 
     const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Request failed");
-    }
+    if (!response.ok) throw new Error(data.message || "Request failed");
 
     button.innerHTML = "REQUEST SENT ✓";
-
     form.reset();
-
     updateCompanyField();
 
   } catch (error) {
-
     console.error(error);
-
     button.innerHTML = "ERROR - TRY AGAIN";
-
     setTimeout(() => {
-      button.innerHTML =
-        `SEND REQUEST <i class="fa-solid fa-arrow-right"></i>`;
+      button.innerHTML = `SEND REQUEST <i class="fa-solid fa-arrow-right"></i>`;
     }, 2500);
-
   } finally {
-
     button.classList.remove("loading");
-
   }
-
 });
 
-// Header
 document.getElementById("serviceTitle").textContent = data.title;
 document.getElementById("serviceSubtitle").textContent = data.subtitle;
 document.getElementById("serviceDescription").textContent = data.description;
 document.getElementById("summaryService").textContent = data.title;
 clientType.addEventListener("change", updateCompanyField);
 
-// Tags
 document.getElementById("serviceTags").innerHTML =
   data.tags.map(t => `<div class="contact-tag">${t}</div>`).join("");
 
-// Dynamic form
 document.getElementById("dynamicFields").innerHTML = data.fields;
 
 updateCompanyField();
