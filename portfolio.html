@@ -1,345 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Portfolio - Aniol Rodríguez</title>
-
-  <!-- AOS CSS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet" />
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/portfolio.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aniol Rodríguez — Full Stack Developer</title>
+<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="./css/portfolio.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,300;1,300&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <aside class="sidebar" aria-label="Personal Information">
-    <img src="images/profile-image.jpg" alt="Aniol profile picture" class="profile-img" />
-    
-    <h1 class="name">Aniol Rodríguez</h1>
-    
-    <p class="subtitle">Full stack developer</p>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="stars"></div>
 
-    <p class="contact-info">
-      Mataró<br />
-      <a href="mailto:aniolrodriguez2005@gmail.com">aniolrodriguez2005@gmail.com</a><br />
-      637 51 00 05
-    </p>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">AR<span>.</span></a>
 
-    <a href="joc.html">Santes Tiles Game</a><br />
+  <ul class="nav-links">
+    <li><a href="#about"      data-i18n="nav.about">About</a></li>
+    <li><a href="#skills"     data-i18n="nav.skills">Skills</a></li>
+    <li><a href="#services"   data-i18n="nav.services">Services</a></li>
+    <li><a href="#craft"      data-i18n="nav.craft">Craft</a></li>
+    <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+    <li><a href="#projects"   data-i18n="nav.projects">Projects</a></li>
+    <li><a href="#contact"    data-i18n="nav.contact">Contact</a></li>
+  </ul>
 
-    <section class="languages">
-      <h2>Languages</h2>
-      <ul>
-        <li>English: B2</li>
-        <li>Catalan: C2</li>
-        <li>Spanish: C2</li>
-      </ul>
-    </section>
-
-    <nav class="social-links" aria-label="Social Media">
-
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/aniol-rodriguez-530514295/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
-          <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11.5 19h-3v-10h3v10zm-1.5-11.25c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13 11.25h-3v-5.5c0-1.32-1.68-1.22-1.68 0v5.5h-3v-10h3v1.5c1.39-2.58 5.68-2.78 5.68 2.46v6.04z"/>
-        </svg>
-      </a>
-
-      <!-- GitHub -->
-      <a href="https://github.com/DRAKEFISTFIRE/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
-          <path d="M12 .5c-6.63 0-12 5.37-12 12 0 5.3 3.438 9.8 8.205 11.387.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.083 1.84 1.238 1.84 1.238 1.07 1.835 2.807 1.305 3.495.998.11-.776.418-1.305.76-1.605-2.665-.3-5.466-1.335-5.466-5.932 0-1.31.47-2.38 1.236-3.22-.123-.3-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.404 11.5 11.5 0 013.003.404c2.292-1.552 3.3-1.23 3.3-1.23.654 1.653.24 2.876.118 3.176.77.84 1.236 1.91 1.236 3.22 0 4.61-2.804 5.63-5.475 5.92.43.37.823 1.1.823 2.22 0 1.6-.015 2.89-.015 3.28 0 .32.218.694.825.576 4.765-1.59 8.2-6.09 8.2-11.385 0-6.63-5.37-12-12-12z"/>
-        </svg>
-      </a>
-
-      <!-- Second GitHub -->
-      <a href="https://github.com/aniolepiaedu" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
-          <path d="M12 .5c-6.63 0-12 5.37-12 12 0 5.3 3.438 9.8 8.205 11.387.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.083 1.84 1.238 1.84 1.238 1.07 1.835 2.807 1.305 3.495.998.11-.776.418-1.305.76-1.605-2.665-.3-5.466-1.335-5.466-5.932 0-1.31.47-2.38 1.236-3.22-.123-.3-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.404 11.5 11.5 0 013.003.404c2.292-1.552 3.3-1.23 3.3-1.23.654 1.653.24 2.876.118 3.176.77.84 1.236 1.91 1.236 3.22 0 4.61-2.804 5.63-5.475 5.92.43.37.823 1.1.823 2.22 0 1.6-.015 2.89-.015 3.28 0 .32.218.694.825.576 4.765-1.59 8.2-6.09 8.2-11.385 0-6.63-5.37-12-12-12z"/>
-        </svg>
-      </a>
-
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/aniolrodriguez_2005/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
-          <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 1.5h8.5A4.25 4.25 0 0120.5 7.75v8.5a4.25 4.25 0 01-4.25 4.25h-8.5A4.25 4.25 0 013 16.25v-8.5A4.25 4.25 0 017.75 3.5zm4.25 3a4.5 4.5 0 100 9 4.5 4.5 0 000-9zm0 1.5a3 3 0 110 6 3 3 0 010-6zm4.75-.38a1.12 1.12 0 11-2.24 0 1.12 1.12 0 012.24 0z"/>
-        </svg>
-      </a>
-
-    </nav>
-  </aside>
-
-  <main class="content">
-
-    <!-- Personal Profile -->
-    <section data-aos="fade-up" class="personal-profile">
-      <h2>👤 Personal Profile</h2>
-
-      <div class="profile-box">
-        <p>
-          My name is Aniol and I am a hardworking, consistent, creative, and ambitious person.
-          I am currently studying a Higher Degree in Web Application Development after completing
-          a Microcomputer Systems and Networks degree at Escola Pia Sta. Anna.
-        </p>
-
-        <p>
-          My goal is to continue my education, obtain an intensive dual-training opportunity,
-          and through these internships find a job after graduation that allows me to finance
-          higher studies. I aspire to grow professionally, reach a junior developer position,
-          and develop myself in a stimulating work environment.
-        </p>
-      </div>
-    </section>
-
-<section data-aos="fade-up">
-  <h2>📚 Education</h2>
-
-  <div class="education-container">
-
-    <div class="education-box">
-      <div class="edu-header">
-        <span class="edu-degree">🎓 Higher Degree</span>
-        <span class="edu-date">Currently Studying</span>
-      </div>
-      <div class="edu-subject">Web Application Development</div>
-      <p class="edu-description">
-        Studying the development and maintenance of web applications, front-end and back-end programming, databases, and web technologies.
-      </p>
-      <p class="edu-center">📍 Escola Pía Mataró</p>
+  <div class="nav-right">
+    <div class="nav-socials" id="nav-socials-desktop">
+      <a href="https://www.instagram.com/aniolrodriguez_2005" target="_blank" class="nav-social" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://github.com/DRAKEFISTFIRE/" target="_blank" class="nav-social" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://github.com/aniolepiaedu" target="_blank" class="nav-social" title="GitHub Escola"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/aniol-rodriguez-530514295/" target="_blank" class="nav-social" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
     </div>
-
-    <div class="education-box">
-      <div class="edu-header">
-        <span class="edu-degree">🎓 Intermediate Degree</span>
-        <span class="edu-date">2022 - 2024</span>
-      </div>
-      <div class="edu-subject">Microcomputer Systems and Networks</div>
-      <p class="edu-description">
-        Training in installation, maintenance, and administration of computer networks and systems, technical support, and hardware/software management.
-      </p>
-      <p class="edu-center">📍 Escola Pía Mataró</p>
+    <div class="language-switcher" id="lang-switcher-desktop">
+      <i class="fa-solid fa-globe"></i>
+      <select id="languageSelect">
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+        <option value="ca">CA</option>
+      </select>
     </div>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <div class="education-box">
-      <div class="edu-header">
-        <span class="edu-degree">🎓 Online Course</span>
-        <span class="edu-date">Completed</span>
-      </div>
-      <div class="edu-subject">Flutter</div>
-      <p class="edu-description">
-        Creation of cross-platform mobile applications using Flutter and Dart.
-      </p>
-      <p class="edu-center">📍 Udemy</p>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <ul class="mobile-nav-links">
+    <li><a href="#about"      class="mnl"><span data-i18n="mnav.about">About</span>      <span>01</span></a></li>
+    <li><a href="#skills"     class="mnl"><span data-i18n="mnav.skills">Skills</span>     <span>02</span></a></li>
+    <li><a href="#services"   class="mnl"><span data-i18n="mnav.services">Services</span>   <span>03</span></a></li>
+    <li><a href="#craft"      class="mnl"><span data-i18n="mnav.craft">Craft</span>      <span>04</span></a></li>
+    <li><a href="#experience" class="mnl"><span data-i18n="mnav.experience">Experience</span> <span>05</span></a></li>
+    <li><a href="#projects"   class="mnl"><span data-i18n="mnav.projects">Projects</span>   <span>06</span></a></li>
+    <li><a href="#contact"    class="mnl"><span data-i18n="mnav.contact">Contact</span>    <span>07</span></a></li>
+  </ul>
+  <div class="mobile-nav-socials">
+    <a href="https://github.com/DRAKEFISTFIRE/" target="_blank" class="nav-social"><i class="fa-brands fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/aniol-rodriguez-530514295/" target="_blank" class="nav-social"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="https://www.instagram.com/aniolrodriguez_2005" target="_blank" class="nav-social"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-images"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-line">FULLSTACK</div>
+  <div class="hero-line">DEVELOPER</div>
+  <div class="hero-line">2026</div>
+  <div class="hero-content">
+    <div class="hero-tag" data-i18n="hero.tag">Available for opportunities</div>
+    <h1 class="hero-name">ANIOL<br><span>RODRÍGUEZ</span></h1>
+    <p class="hero-role" data-i18n="hero.role">Full Stack Developer — <em data-i18n="hero.role_em">Mataró, Barcelona</em></p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary"><span data-i18n="hero.cta_primary">View Projects</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      <a href="#contact" class="btn-ghost" data-i18n="hero.cta_ghost">Get In Touch</a>
     </div>
+  </div>
+  <div class="hero-badges">
+    <div class="hero-badge">Vue.js</div>
+    <div class="hero-badge">Laravel</div>
+    <div class="hero-badge">React</div>
+    <div class="hero-badge">Node.js</div>
+    <div class="hero-badge">Flutter</div>
+  </div>
+  <div class="scroll-hint" data-i18n="hero.scroll">Scroll down</div>
+</section>
 
-    <div class="education-box">
-      <div class="edu-header">
-        <span class="edu-degree">🎓 Online Course</span>
-        <span class="edu-date">Completed</span>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-tag" data-i18n="about.tag">01 — About</div>
+  <div class="section-title"><span data-i18n="about.title_1">WHO I</span> <span data-i18n="about.title_2" class="red-stroke">AM</span></div>
+  <div class="about-grid">
+    <div class="about-photo-wrap reveal">
+      <div class="about-photo-frame">
+        <img src="images/aniol.png" alt="Aniol Rodríguez" class="about-real-img" loading="lazy"/>
+        <div class="about-img-overlay"></div>
+        <div class="about-accent"></div>
+        <div class="about-accent2"></div>
+        <div class="about-float-card">
+          <div class="afc-num">3+</div>
+          <div class="afc-label" data-i18n="about.float_label">Years coding</div>
+        </div>
       </div>
-      <div class="edu-subject">Python with Django</div>
-      <p class="edu-description">
-        Web development with Python and the Django framework, creating robust web applications.
-      </p>
-      <p class="edu-center">📍 Udemy</p>
     </div>
-
-    <div class="education-box">
-      <div class="edu-header">
-        <span class="edu-degree">🎓 Online Course</span>
-        <span class="edu-date">Completed</span>
+    <div class="about-text reveal">
+      <div class="about-tagline" data-i18n="about.tagline">Full Stack Developer</div>
+      <h3><span data-i18n="about.heading_1">Passionate builder,</span><br><span data-i18n="about.heading_2" class="red-text">consistent learner.</span></h3>
+      <div class="about-divider"></div>
+      <p data-i18n="about.p1">I'm Aniol, a Junior Full Stack Developer from Mataró studying Web Application Development at Escola Pía. I build end-to-end digital products with clean code and a strong focus on design and user experience.</p>
+      <p data-i18n="about.p2">My goal is to grow into a senior developer role through dual training, internships, and real-world projects. I thrive in dynamic environments where creativity and engineering come together to build impactful solutions.</p>
+      <p data-i18n="about.p3">Currently, I'm developing SushiKick — a full-stack restaurant platform built with Vue and Laravel, featuring real-time order tracking and Leaflet map integration.</p>
+      <p data-i18n="about.p4">Additionally, I am involved in the development of Tradicions Mataró, contributing to building digital solutions tailored to the project's needs.</p>
+      <div class="lang-row">
+        <span class="lang-badge" data-i18n="about.lang_en">🇬🇧 English B2</span>
+        <span class="lang-badge" data-i18n="about.lang_es">🇪🇸 Spanish C2</span>
+        <span class="lang-badge" data-i18n="about.lang_ca">🏴󠁥󠁳󠁣󠁴󠁿 Catalan C2</span>
       </div>
-      <div class="edu-subject">Advanced Python + AI</div>
-      <p class="edu-description">
-        Web development with Python, creating levels, mini-games, and testing code.
-      </p>
-      <p class="edu-center">📍 Udemy</p>
-    </div>
-
-    <div class="education-box">
-      <div class="edu-header">
-        <span class="edu-degree">🎓 Online Course</span>
-        <span class="edu-date">Currently Studying</span>
+      <div class="about-stats">
+        <div class="stat-box"><div class="stat-num">3+</div><div class="stat-label" data-i18n="about.stat_years">Years coding</div></div>
+        <div class="stat-box"><div class="stat-num">10+</div><div class="stat-label" data-i18n="about.stat_tech">Technologies</div></div>
+        <div class="stat-box"><div class="stat-num">5+</div><div class="stat-label" data-i18n="about.stat_projects">Projects</div></div>
       </div>
-      <div class="edu-subject">Full Stack Developer</div>
-      <p class="edu-description">
-        Comprehensive training in front-end and back-end development to build complete applications.
-      </p>
-      <p class="edu-center">📍 Udemy</p>
     </div>
-
-    <div class="education-box">
-      <div class="edu-header">
-        <span class="edu-degree">🎓 Online Course</span>
-        <span class="edu-date">Currently Studying</span>
-      </div>
-      <div class="edu-subject">Front-End and Back-End Web Development</div>
-      <p class="edu-description">
-        Comprehensive training in front-end and back-end development to build complete applications.
-      </p>
-      <p class="edu-center">📍 Udemy</p>
-    </div>
-
-    <div class="education-box">
-      <div class="edu-header">
-        <span class="edu-degree">🎓 Secondary Education</span>
-        <span class="edu-date">2014 - 2020</span>
-      </div>
-      <div class="edu-subject">Compulsory Secondary Education</div>
-      <p class="edu-center">📍 Cor de Maria Mataró</p>
-    </div>
-
   </div>
 </section>
 
-<!-- Work Experience -->
-<section data-aos="fade-up">
-  <h2>💼 Work Experience</h2>
-
-  <div class="experience-grid">
-
-    <div class="experience-box">
-      <h3>Indian Webs</h3>
-      <p>7 months of experience at the company</p>
-      <span>02/10/2025 - 15/05/2026</span>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag" data-i18n="skills.tag">02 — Skills</div>
+  <div class="section-title"><span data-i18n="skills.title_1">TECH</span> <span data-i18n="skills.title_2" class="red-stroke">STACK</span></div>
+  <div class="skills-tabs">
+    <button class="tab-btn active" data-i18n="skills.tab_languages" onclick="showTab('languages',this)">Languages</button>
+    <button class="tab-btn" data-i18n="skills.tab_frameworks" onclick="showTab('frameworks',this)">Frameworks</button>
+    <button class="tab-btn" data-i18n="skills.tab_tools" onclick="showTab('tools',this)">Tools</button>
+  </div>
+  <div id="tab-languages" class="skills-panel active reveal">
+    <div class="skills-list">
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">HTML & CSS</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">TypeScript</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">PHP</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Dart</span><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div><span class="skill-pct">95%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">C#</span><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div><span class="skill-pct">65%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">C++</span><div class="skill-bar"><div class="skill-fill" data-w="14"></div></div></div><span class="skill-pct">14%</span></div>
     </div>
-
-    <div class="experience-box">
-      <h3>Thrax</h3>
-      <p>3 months of experience at the company</p>
-      <span>12/06/2025 - 12/09/2025</span>
+  </div>
+  <div id="tab-frameworks" class="skills-panel reveal">
+    <div class="skills-list">
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">React</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Vue.js</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Node.js</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Express.js</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Laravel</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Symfony</span><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div><span class="skill-pct">95%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Flutter</span><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div><span class="skill-pct">95%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Django</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div><span class="skill-pct">80%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Sass</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Angular</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div><span class="skill-pct">80%</span></div>
     </div>
-
-    <div class="experience-box">
-      <h3>SCHUNK</h3>
-      <p>6 months of experience at the company</p>
-      <span>10/11/2023 - 04/05/2024</span>
+  </div>
+  <div id="tab-tools" class="skills-panel reveal">
+    <div class="skills-list">
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">GitHub / Git</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Docker</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Databases (SQL/NoSQL)</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Front-End</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Back-End</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Trello / Kanban</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">Operating Systems</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">REST API Design</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">System Architecture</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
+      <div class="skill-row"><div class="skill-left"><span class="skill-name">CI/CD</span><div class="skill-bar"><div class="skill-fill" data-w="100"></div></div></div><span class="skill-pct">100%</span></div>
     </div>
-
   </div>
 </section>
 
-<!-- Tech Stack -->
-<section data-aos="fade-up" class="skills">
-  <h2>💻 Tech Stack</h2>
-
-  <!-- Programming Languages -->
-  <h3>Programming Languages</h3>
-
-  <div class="skills-grid">
-    <div class="skill"><h4>HTML & CSS</h4><div class="bar"><span style="width:100%"></span></div></div>
-    <div class="skill"><h4>JavaScript</h4><div class="bar"><span style="width:100%"></span></div></div>
-    <div class="skill"><h4>TypeScript</h4><div class="bar"><span style="width:100%"></span></div></div>
-    <div class="skill"><h4>PHP</h4><div class="bar"><span style="width:100%"></span></div></div>
-    <div class="skill"><h4>Python</h4><div class="bar"><span style="width:100%"></span></div></div>
-    <div class="skill"><h4>C++</h4><div class="bar"><span style="width:14%"></span></div></div>
-    <div class="skill"><h4>C#</h4><div class="bar"><span style="width:45%"></span></div></div>
-    <div class="skill"><h4>Dart</h4><div class="bar"><span style="width:85%"></span></div></div>
-  </div>
-
-  <!-- Frameworks & Libraries -->
-  <h3>Frameworks & Libraries</h3>
-
-  <div class="skills-grid">
-    <div class="skill"><h4>React</h4><div class="bar"><span style="width:100%"></span></div></div>
-    <div class="skill"><h4>Vue</h4><div class="bar"><span style="width:95%"></span></div></div>
-    <div class="skill"><h4>Angular</h4><div class="bar"><span style="width:30%"></span></div></div>
-    <div class="skill"><h4>Node.js</h4><div class="bar"><span style="width:100%"></span></div></div>
-    <div class="skill"><h4>Express.js</h4><div class="bar"><span style="width:100%"></span></div></div>
-    <div class="skill"><h4>Laravel</h4><div class="bar"><span style="width:85%"></span></div></div>
-    <div class="skill"><h4>Symfony</h4><div class="bar"><span style="width:76%"></span></div></div>
-    <div class="skill"><h4>Flutter</h4><div class="bar"><span style="width:85%"></span></div></div>
-    <div class="skill"><h4>Django</h4><div class="bar"><span style="width:80%"></span></div></div>
-    <div class="skill"><h4>Sass</h4><div class="bar"><span style="width:100%"></span></div></div>
-  </div>
-
-  <!-- Other Knowledge -->
-  <h3>Other Skills</h3>
-
-  <div class="skills-grid">
-    <div class="skill"><h4>Operating Systems</h4><div class="bar"><span style="width:90%"></span></div></div>
-    <div class="skill"><h4>Databases</h4><div class="bar"><span style="width:90%"></span></div></div>
-    <div class="skill"><h4>Front-End</h4><div class="bar"><span style="width:95%"></span></div></div>
-    <div class="skill"><h4>Back-End</h4><div class="bar"><span style="width:90%"></span></div></div>
-    <div class="skill"><h4>Docker</h4><div class="bar"><span style="width:100%"></span></div></div>
-    <div class="skill"><h4>Trello / Kanban</h4><div class="bar"><span style="width:100%"></span></div></div>
-    <div class="skill"><h4>GitHub</h4><div class="bar"><span style="width:100%"></span></div></div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-tag" data-i18n="services.tag">03 — Services</div>
+  <div class="section-title"><span data-i18n="services.title_1">WHAT I</span> <span data-i18n="services.title_2" class="red-stroke">DO</span></div>
+  <div class="services-grid reveal">
+    <a href="contact.html?service=frontend" class="service-card">
+      <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80" alt="Front-End" loading="lazy"/><div class="service-img-overlay"></div></div>
+      <div class="service-body"><div class="service-num">01</div><span class="service-icon">🎨</span><div class="service-name" data-i18n="services.s1_name">Front-End Development</div><p class="service-desc" data-i18n="services.s1_desc">Pixel-perfect, performant interfaces with immersive animations and great UX. From component libraries to full SPA architectures.</p><div class="service-stack"><span class="stack-pill">React</span><span class="stack-pill">Vue.js</span><span class="stack-pill">TypeScript</span><span class="stack-pill">Sass</span></div><div class="service-cta" data-i18n="services.s1_cta">Hire me <span>→</span></div></div>
+    </a>
+    <a href="contact.html?service=backend" class="service-card">
+      <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80" alt="Back-End" loading="lazy"/><div class="service-img-overlay"></div></div>
+      <div class="service-body"><div class="service-num">02</div><span class="service-icon">⚙️</span><div class="service-name" data-i18n="services.s2_name">Back-End Engineering</div><p class="service-desc" data-i18n="services.s2_desc">Robust, scalable APIs and server architectures. REST, auth systems, databases, and clean business logic.</p><div class="service-stack"><span class="stack-pill">Laravel</span><span class="stack-pill">Node.js</span><span class="stack-pill">Express</span><span class="stack-pill">Django</span></div><div class="service-cta" data-i18n="services.s2_cta">Hire me <span>→</span></div></div>
+    </a>
+    <a href="contact.html?service=mobile" class="service-card">
+      <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80" alt="Mobile" loading="lazy"/><div class="service-img-overlay"></div></div>
+      <div class="service-body"><div class="service-num">03</div><span class="service-icon">📱</span><div class="service-name" data-i18n="services.s3_name">Mobile Development</div><p class="service-desc" data-i18n="services.s3_desc">Cross-platform apps with native feel, smooth animations, and full device integration using Flutter & Dart.</p><div class="service-stack"><span class="stack-pill">Flutter</span><span class="stack-pill">Dart</span><span class="stack-pill">iOS</span><span class="stack-pill">Android</span></div><div class="service-cta" data-i18n="services.s3_cta">Hire me <span>→</span></div></div>
+    </a>
+    <a href="contact.html?service=devops" class="service-card">
+      <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600&q=80" alt="DevOps" loading="lazy"/><div class="service-img-overlay"></div></div>
+      <div class="service-body"><div class="service-num">04</div><span class="service-icon">🗄️</span><div class="service-name" data-i18n="services.s4_name">Database & DevOps</div><p class="service-desc" data-i18n="services.s4_desc">Schema design, query optimisation, containerised deployments, CI/CD pipelines, and infrastructure management.</p><div class="service-stack"><span class="stack-pill">MySQL</span><span class="stack-pill">MongoDB</span><span class="stack-pill">Docker</span><span class="stack-pill">GitHub Actions</span></div><div class="service-cta" data-i18n="services.s4_cta">Hire me <span>→</span></div></div>
+    </a>
+    <a href="contact.html?service=ai" class="service-card">
+      <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80" alt="AI" loading="lazy"/><div class="service-img-overlay"></div></div>
+      <div class="service-body"><div class="service-num">05</div><span class="service-icon">🤖</span><div class="service-name" data-i18n="services.s5_name">AI Integration</div><p class="service-desc" data-i18n="services.s5_desc">Embedding AI capabilities into applications — chatbots, content generation, smart automation, and Python-based ML scripts.</p><div class="service-stack"><span class="stack-pill">Python</span><span class="stack-pill">OpenAI API</span><span class="stack-pill">LangChain</span></div><div class="service-cta" data-i18n="services.s5_cta">Hire me <span>→</span></div></div>
+    </a>
+    <a href="contact.html?service=fullproduct" class="service-card">
+      <div class="service-img-wrap"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Full Product" loading="lazy"/><div class="service-img-overlay"></div></div>
+      <div class="service-body"><div class="service-num">06</div><span class="service-icon">🌐</span><div class="service-name" data-i18n="services.s6_name">Full Product Build</div><p class="service-desc" data-i18n="services.s6_desc">From zero to deployed — end-to-end product development covering design, code, infrastructure, and maintenance.</p><div class="service-stack"><span class="stack-pill">Full Stack</span><span class="stack-pill">System Design</span><span class="stack-pill">Deployment</span></div><div class="service-cta" data-i18n="services.s6_cta">Hire me <span>→</span></div></div>
+    </a>
   </div>
 </section>
 
-<!-- Soft Skills -->
-<section data-aos="fade-up">
-  <h2>✨ Soft Skills</h2>
-
-  <div class="soft-skills-grid">
-    <div class="skill-card"><div class="emoji">🤝</div><h3>Teamwork</h3></div>
-    <div class="skill-card"><div class="emoji">🗣️</div><h3>Collaboration & Active Listening</h3></div>
-    <div class="skill-card"><div class="emoji">🧠</div><h3>Self-Awareness</h3></div>
-    <div class="skill-card"><div class="emoji">🎨</div><h3>Creativity</h3></div>
-    <div class="skill-card"><div class="emoji">🧭</div><h3>Self-Management</h3></div>
-    <div class="skill-card"><div class="emoji">💖</div><h3>Empathy</h3></div>
-    <div class="skill-card"><div class="emoji">🔥</div><h3>Persistence & Consistency</h3></div>
+<!-- CRAFT -->
+<section id="craft">
+  <div class="section-tag" data-i18n="craft.tag">04 — Craft</div>
+  <div class="section-title"><span data-i18n="craft.title_1">HOW I</span> <span data-i18n="craft.title_2" class="red-stroke">CODE</span></div>
+  <div class="craft-layout">
+    <div class="craft-left reveal">
+      <p class="craft-statement"><span data-i18n="craft.statement_1">Code is a</span><br><em data-i18n="craft.statement_em">craft,</em><br><span data-i18n="craft.statement_2">not just a tool.</span></p>
+      <p class="craft-intro" data-i18n="craft.intro">Every line I write follows principles that make software maintainable, scalable, and a pleasure to work with. These aren't rules I follow — they're habits I've built.</p>
+      <div class="craft-principles">
+        <div class="craft-principle"><span class="cp-index">01</span><div><div class="cp-name" data-i18n="craft.p1_name">Clean Architecture</div><div class="cp-desc" data-i18n="craft.p1_desc">Strict separation of concerns — logic in composables, templates stay templates, styles stay styles. One layer, one job.</div></div></div>
+        <div class="craft-principle"><span class="cp-index">02</span><div><div class="cp-name" data-i18n="craft.p2_name">SOLID Principles</div><div class="cp-desc" data-i18n="craft.p2_desc">Single responsibility, open/closed, dependency inversion. Code that's easy to extend without touching what already works.</div></div></div>
+        <div class="craft-principle"><span class="cp-index">03</span><div><div class="cp-name" data-i18n="craft.p3_name">Security by Default</div><div class="cp-desc" data-i18n="craft.p3_desc">Sanctum/JWT auth, input sanitisation, CSRF protection, prepared statements. Security isn't day two — it's day one.</div></div></div>
+        <div class="craft-principle"><span class="cp-index">04</span><div><div class="cp-name" data-i18n="craft.p4_name">Performance Obsessed</div><div class="cp-desc" data-i18n="craft.p4_desc">Lazy loading, code splitting, RAF loops, debounced events. No layout thrash, no wasted re-renders, no bytes lost on the wire.</div></div></div>
+        <div class="craft-principle"><span class="cp-index">05</span><div><div class="cp-name" data-i18n="craft.p5_name">DRY & Composable</div><div class="cp-desc" data-i18n="craft.p5_desc">Shared composables and utilities over copy-paste. Write once, use everywhere — with zero hidden coupling between modules.</div></div></div>
+        <div class="craft-principle"><span class="cp-index">06</span><div><div class="cp-name" data-i18n="craft.p6_name">Git Discipline</div><div class="cp-desc" data-i18n="craft.p6_desc">Conventional commits, feature branches, atomic PRs. Every change is intentional, traceable, and rollback-safe.</div></div></div>
+        <div class="craft-principle"><span class="cp-index">07</span><div><div class="cp-name" data-i18n="craft.p7_name">Accessible by Default</div><div class="cp-desc" data-i18n="craft.p7_desc">Semantic HTML, ARIA roles, keyboard nav, WCAG AA contrast. The web should work for everyone — full stop.</div></div></div>
+      </div>
+    </div>
+    <div class="craft-bento reveal">
+      <div class="bc bc--wide"><div class="bc-left"><div class="bc-eyebrow" data-i18n="craft.bc1_eyebrow">Reliability</div><div class="bc-big">100%</div></div><div class="bc-right"><div class="bc-text" data-i18n="craft.bc1_text">On-time delivery across every project. Clean handoffs, no surprises, no last-minute fires. Code that works when it ships.</div><div class="bc-tags"><span class="bc-tag">No bugs shipped</span><span class="bc-tag">On schedule</span><span class="bc-tag">Clean handoff</span></div></div></div>
+      <div class="bc bc--narrow"><div class="bc-eyebrow" data-i18n="craft.bc2_eyebrow">Experience</div><div class="bc-big">3+</div><div class="bc-text" data-i18n="craft.bc2_text">Years writing production-grade code across frontend, backend, and mobile.</div></div>
+      <div class="bc bc--narrow"><div class="bc-eyebrow" data-i18n="craft.bc3_eyebrow">Stack depth</div><div class="bc-big">10+</div><div class="bc-text" data-i18n="craft.bc3_text">Languages and frameworks mastered end-to-end, not just touched.</div></div>
+      <div class="bc bc--narrow"><div class="bc-eyebrow" data-i18n="craft.bc4_eyebrow">Practices</div><div class="bc-tags" style="margin-top:0"><span class="bc-tag">DRY</span><span class="bc-tag">SOLID</span><span class="bc-tag">REST</span><span class="bc-tag">JWT</span><span class="bc-tag">WCAG AA</span><span class="bc-tag">Lazy load</span><span class="bc-tag">Atomic PRs</span><span class="bc-tag">Semantic HTML</span><span class="bc-tag">CSP</span></div></div>
+      <div class="bc bc--narrow"><div class="bc-eyebrow" data-i18n="craft.bc5_eyebrow">Philosophy</div><div class="bc-text" data-i18n="craft.bc5_text">Self-documenting code. Meaningful names, clear signatures. Code that reads like a sentence needs no novel of comments.</div><div class="bc-code">// good
+const fetchUserOrders = async (id) => {
+  try { return await api.get(...) }
+  catch(e) { handleError(e) }
+}</div></div>
+    </div>
   </div>
 </section>
 
-<!-- Recommendations -->
-<section data-aos="fade-up">
-  <h2>Recommendations</h2>
-
-  <h3>Javier García Gerpe</h3>
-
-  <blockquote>
-    “Aniol is a young talent with great potential. I am convinced that he has the ability to continue developing and growing, achieving his goal of excelling in the work he is truly passionate about. I recommend Aniol 100%.”
-    — Javier García Gerpe
-  </blockquote>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-tag" data-i18n="experience.tag">05 — Experience</div>
+  <div class="section-title"><span data-i18n="experience.title_1">WHERE I'VE</span> <span data-i18n="experience.title_2" class="red-stroke">WORKED</span></div>
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-date">02/10/2025 — 15/05/2026 · 7 months</div>
+      <div class="tl-company">Indian Webs</div>
+      <div class="tl-role" data-i18n="experience.j1_role">Web Developer</div>
+      <p class="tl-desc" data-i18n="experience.j1_desc">Developed and maintained web solutions, contributing to client projects across the full stack. Applied modern frameworks and best practices in a professional agency environment.</p>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-date">12/06/2025 — 12/09/2025 · 3 months</div>
+      <div class="tl-company">Thrax</div>
+      <div class="tl-role" data-i18n="experience.j2_role">Web Developer</div>
+      <p class="tl-desc" data-i18n="experience.j2_desc">Built interactive digital experiences and contributed to product features, working in an agile team environment focused on delivery and quality.</p>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-date">10/11/2023 — 04/05/2024 · 6 months</div>
+      <div class="tl-company">SCHUNK</div>
+      <div class="tl-role" data-i18n="experience.j3_role">IT Technician / Intern</div>
+      <p class="tl-desc" data-i18n="experience.j3_desc">Managed microcomputer systems, network maintenance and technical support in an international industrial environment.</p>
+    </div>
+  </div>
 </section>
 
-<!-- Featured Projects -->
-<section class="projects" data-aos="fade-up">
-  <h2>Featured Projects</h2>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-tag" data-i18n="projects.tag">06 — Projects</div>
+  <div class="section-title"><span data-i18n="projects.title_1">FEATURED</span> <span data-i18n="projects.title_2" class="red-stroke">WORK</span></div>
 
-  <article>
-    <h3><a href="https://github.com/DRAKEFISTFIRE/Roll-a-Ball">🎮 Roll a Ball</a></h3>
-    <p>3D game created with Unity to learn physics and video game programming.</p>
-  </article>
+  <!-- DESKTOP GRID -->
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-thumb"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80" alt="SushiKick" loading="lazy"/><div class="project-thumb-overlay"><div class="project-tag">Vue · Laravel · Leaflet</div></div></div>
+      <div class="project-body"><div class="project-title" data-i18n="projects.p1_title">SushiKick</div><p class="project-desc" data-i18n="projects.p1_desc">Full-stack Japanese restaurant platform with order management, real-time delivery tracking with animated map, countdown timers, and status timeline.</p><div class="project-actions"><a href="project.html?id=sushikick" class="project-detail-btn"><span data-i18n="projects.p1_detail">View Details</span> <span>→</span></a><a href="https://github.com/DRAKEFISTFIRE/SushiKick" class="project-link" target="_blank">GitHub →</a></div></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-thumb"><img src="images/bannerHome.jpg" alt="PDDC" loading="lazy"/><div class="project-thumb-overlay"><div class="project-tag">React · Node.js · MongoDB</div></div></div>
+      <div class="project-body"><div class="project-title" data-i18n="projects.p2_title">PDDC — Police System</div><p class="project-desc" data-i18n="projects.p2_desc">Gamified police management platform for citizens and officers. Case management, learning modules, and progress tracking. Final degree project.</p><div class="project-actions"><a href="project.html?id=pddc" class="project-detail-btn"><span data-i18n="projects.p2_detail">View Details</span> <span>→</span></a><a href="https://github.com/DRAKEFISTFIRE/PDDC" class="project-link" target="_blank">GitHub →</a></div></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-thumb"><img src="images/circuito.png" alt="MontmeloInside" loading="lazy"/><div class="project-thumb-overlay"><div class="project-tag">React Native · Node.js · MongoDB</div></div></div>
+      <div class="project-body"><div class="project-title" data-i18n="projects.p3_title">MontmeloInside</div><p class="project-desc" data-i18n="projects.p3_desc">Mobile application for navigating the Montmeló Circuit. Interactive maps, location guidance, and essential circuit facility information.</p><div class="project-actions"><a href="project.html?id=montmelo" class="project-detail-btn"><span data-i18n="projects.p3_detail">View Details</span> <span>→</span></a><a href="https://github.com/aniolepiaedu/montmeloInside" class="project-link" target="_blank">GitHub →</a></div></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-thumb"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80" alt="Tradicions Mataró" loading="lazy"/><div class="project-thumb-overlay"><div class="project-tag">Web · PHP · MySQL</div></div></div>
+      <div class="project-body"><div class="project-title" data-i18n="projects.p4_title">Tradicions Mataró</div><p class="project-desc" data-i18n="projects.p4_desc">Local culture blog and publication platform celebrating Mataró's traditions. Custom CMS, articles, and dynamic publishing system built from scratch.</p><div class="project-actions"><a href="project.html?id=tradicions" class="project-detail-btn"><span data-i18n="projects.p4_detail">View Details</span> <span>→</span></a><a href="https://tradicionsmataro.x10.mx/" class="project-link" target="_blank">Live Site →</a></div></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-thumb"><img src="images/traplife.png" alt="TrapLife" loading="lazy"/><div class="project-thumb-overlay"><div class="project-tag">React · Node.js · Socket.io</div></div></div>
+      <div class="project-body"><div class="project-title" data-i18n="projects.p5_title">TrapLife</div><p class="project-desc" data-i18n="projects.p5_desc">Feature-rich platform for a GTA RolePlay server community. User management, faction system, admin panel, and real-time server status.</p><div class="project-actions"><a href="project.html?id=traplife" class="project-detail-btn"><span data-i18n="projects.p5_detail">View Details</span> <span>→</span></a><a href="https://github.com/DRAKEFISTFIRE/TrapLife" class="project-link" target="_blank">GitHub →</a></div></div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-thumb"><img src="images/roll-ball.png" alt="Roll a Ball" loading="lazy"/><div class="project-thumb-overlay"><div class="project-tag">Unity · C#</div></div></div>
+      <div class="project-body"><div class="project-title" data-i18n="projects.p6_title">Roll a Ball</div><p class="project-desc" data-i18n="projects.p6_desc">3D physics-based game in Unity. Physics movement, collision, scoring, and multi-level design exploring game programming fundamentals.</p><div class="project-actions"><a href="project.html?id=rollaball" class="project-detail-btn"><span data-i18n="projects.p6_detail">View Details</span> <span>→</span></a><a href="https://github.com/DRAKEFISTFIRE/Roll-a-Ball" class="project-link" target="_blank">GitHub →</a></div></div>
+    </div>
+  </div>
 
-  <article>
-    <h3><a href="https://github.com/DRAKEFISTFIRE/PDDC">👮 PDDC: Police Management System</a></h3>
-    <p>
-      As a final gamification project, I created a police management system for citizens and police officers to manage cases.
-      Police officers can learn and improve through the platform. Frontend: React, Backend: Express and Node.js, DB: MongoDB.
-    </p>
-  </article>
-
-  <article>
-    <h3><a href="https://github.com/DRAKEFISTFIRE/TrapLife">👊 TrapLife</a></h3>
-    <p>Intuitive platform for a GTA RolePlay server.</p>
-  </article>
-
-  <article>
-    <h3><a href="https://tradicionsmataro.x10.mx/">🌐 Tradicions Mataró Website</a></h3>
-    <p>A project featuring blog information and publications. "In development"</p>
-  </article>
-
-  <article>
-    <h3><a href="https://github.com/DRAKEFISTFIRE/SushiKick">🍣 SushiKick</a></h3>
-    <p>
-      Japanese restaurant project with an order management system and Leaflet integration,
-      using Vue for the frontend and Laravel for the backend. "In development".
-    </p>
-  </article>
+  <!-- MOBILE ACCORDION -->
+  <div class="proj-accordion">
+    <div class="pac"><div class="pac-header" onclick="togglePac(this)"><div class="pac-num">01</div><div class="pac-info"><div class="pac-name" data-i18n="projects.p1_title">SushiKick</div><div class="pac-stack">Vue · Laravel · Leaflet</div></div><div class="pac-arrow">▶</div></div><div class="pac-body"><div class="pac-inner"><img class="pac-img" src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&q=80" alt="SushiKick"/><p class="pac-desc" data-i18n="projects.p1_desc">Full-stack restaurant platform with real-time delivery tracking, animated Leaflet map, countdown timers, and order status timeline.</p><div class="pac-tags"><span class="stack-pill">Vue.js</span><span class="stack-pill">Laravel</span><span class="stack-pill">Leaflet</span></div><div class="pac-actions"><a href="project.html?id=sushikick" class="project-detail-btn" data-i18n="projects.p1_detail">Details →</a><a href="https://github.com/DRAKEFISTFIRE/SushiKick" class="project-link" target="_blank">GitHub →</a></div></div></div></div>
+    <div class="pac"><div class="pac-header" onclick="togglePac(this)"><div class="pac-num">02</div><div class="pac-info"><div class="pac-name" data-i18n="projects.p2_title">PDDC — Police System</div><div class="pac-stack">React · Node.js · MongoDB</div></div><div class="pac-arrow">▶</div></div><div class="pac-body"><div class="pac-inner"><img class="pac-img" src="images/bannerHome.jpg" alt="PDDC"/><p class="pac-desc" data-i18n="projects.p2_desc">Gamified police management platform. Case management, learning modules, progress tracking. Final degree project.</p><div class="pac-tags"><span class="stack-pill">React</span><span class="stack-pill">Node.js</span><span class="stack-pill">MongoDB</span></div><div class="pac-actions"><a href="project.html?id=pddc" class="project-detail-btn" data-i18n="projects.p2_detail">Details →</a><a href="https://github.com/DRAKEFISTFIRE/PDDC" class="project-link" target="_blank">GitHub →</a></div></div></div></div>
+    <div class="pac"><div class="pac-header" onclick="togglePac(this)"><div class="pac-num">03</div><div class="pac-info"><div class="pac-name" data-i18n="projects.p3_title">MontmeloInside</div><div class="pac-stack">React Native · Node.js · MongoDB</div></div><div class="pac-arrow">▶</div></div><div class="pac-body"><div class="pac-inner"><img class="pac-img" src="images/circuito.png" alt="MontmeloInside"/><p class="pac-desc" data-i18n="projects.p3_desc">Mobile app for navigating the Montmeló Circuit. Interactive maps, location guidance, and facility information.</p><div class="pac-tags"><span class="stack-pill">React Native</span><span class="stack-pill">Node.js</span></div><div class="pac-actions"><a href="project.html?id=montmelo" class="project-detail-btn" data-i18n="projects.p3_detail">Details →</a><a href="https://github.com/aniolepiaedu/montmeloInside" class="project-link" target="_blank">GitHub →</a></div></div></div></div>
+    <div class="pac"><div class="pac-header" onclick="togglePac(this)"><div class="pac-num">04</div><div class="pac-info"><div class="pac-name" data-i18n="projects.p4_title">Tradicions Mataró</div><div class="pac-stack">Web · PHP · MySQL</div></div><div class="pac-arrow">▶</div></div><div class="pac-body"><div class="pac-inner"><img class="pac-img" src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80" alt="Tradicions Mataró"/><p class="pac-desc" data-i18n="projects.p4_desc">Local culture blog celebrating Mataró's traditions. Custom CMS, articles, and dynamic publishing system.</p><div class="pac-tags"><span class="stack-pill">PHP</span><span class="stack-pill">MySQL</span></div><div class="pac-actions"><a href="project.html?id=tradicions" class="project-detail-btn" data-i18n="projects.p4_detail">Details →</a><a href="https://tradicionsmataro.x10.mx/" class="project-link" target="_blank">Live →</a></div></div></div></div>
+    <div class="pac"><div class="pac-header" onclick="togglePac(this)"><div class="pac-num">05</div><div class="pac-info"><div class="pac-name" data-i18n="projects.p5_title">TrapLife</div><div class="pac-stack">React · Node.js · Socket.io</div></div><div class="pac-arrow">▶</div></div><div class="pac-body"><div class="pac-inner"><img class="pac-img" src="images/traplife.png" alt="TrapLife"/><p class="pac-desc" data-i18n="projects.p5_desc">Platform for a GTA RolePlay community. User management, faction system, admin panel, real-time server status.</p><div class="pac-tags"><span class="stack-pill">React</span><span class="stack-pill">Socket.io</span></div><div class="pac-actions"><a href="project.html?id=traplife" class="project-detail-btn" data-i18n="projects.p5_detail">Details →</a><a href="https://github.com/DRAKEFISTFIRE/TrapLife" class="project-link" target="_blank">GitHub →</a></div></div></div></div>
+    <div class="pac"><div class="pac-header" onclick="togglePac(this)"><div class="pac-num">06</div><div class="pac-info"><div class="pac-name" data-i18n="projects.p6_title">Roll a Ball</div><div class="pac-stack">Unity · C#</div></div><div class="pac-arrow">▶</div></div><div class="pac-body"><div class="pac-inner"><img class="pac-img" src="images/roll-ball.png" alt="Roll a Ball"/><p class="pac-desc" data-i18n="projects.p6_desc">3D physics-based game in Unity. Physics movement, collision, scoring, and multi-level design.</p><div class="pac-tags"><span class="stack-pill">Unity</span><span class="stack-pill">C#</span></div><div class="pac-actions"><a href="project.html?id=rollaball" class="project-detail-btn" data-i18n="projects.p6_detail">Details →</a><a href="https://github.com/DRAKEFISTFIRE/Roll-a-Ball" class="project-link" target="_blank">GitHub →</a></div></div></div></div>
+  </div>
 </section>
-</main>
 
+<!-- LIVE PROJECTS -->
+<section id="real-projects" style="padding-top:0">
+  <div class="section-tag" data-i18n="real_projects.tag">06b — Real Projects</div>
+  <div class="section-title"><span data-i18n="real_projects.title_1">LIVE</span> <span data-i18n="real_projects.title_2" class="red-stroke">WORK</span></div>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({ once: true, duration: 800, easing: 'ease-in-out' });
-</script>
+  <div class="projects-grid">
+    <div class="project-card project-card--featured reveal">
+      <div class="project-thumb"><img src="images/santes.jpg" alt="Les Santes de Mataró" loading="lazy"/><div class="project-thumb-overlay"><div class="project-tag">Web Design · UI/UX · Frontend</div><div class="project-live-badge">LIVE</div></div></div>
+      <div class="project-body"><div class="project-title" data-i18n="real_projects.p1_title">Les Santes de Mataró — Redesign</div>  <p class="project-desc" data-i18n="real_projects.p1_desc">Complete redesign of the official Les Santes de Mataró festival website, focusing on modern UI/UX, improved accessibility, and a more immersive visual identity while preserving the cultural essence of the festival. The project also includes an interactive mini-game called <strong>Santes Tiles</strong>, designed to enhance user engagement through a playful experience inspired by the festival.</p><div class="project-actions"><a href="project.html?id=lessantes" class="project-detail-btn"><span data-i18n="real_projects.p1_detail">View Details</span> <span>→</span></a><a href="https://www.lessantes.cat/" class="project-link" target="_blank"><span data-i18n="real_projects.p1_link">Visit Live Site</span> →</a></div></div>
+    </div>
+  </div>
 
+  <div class="proj-accordion">
+    <div class="pac"><div class="pac-header" onclick="togglePac(this)"><div class="pac-num"><span class="project-live-badge" style="font-size:.5rem;padding:.15rem .5rem">LIVE</span></div><div class="pac-info"><div class="pac-name" data-i18n="real_projects.p1_title">Les Santes de Mataró</div><div class="pac-stack">Web Design · UI/UX · Frontend</div></div><div class="pac-arrow">▶</div></div><div class="pac-body"><div class="pac-inner"><img class="pac-img" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80" alt="Les Santes"/><p class="pac-desc" data-i18n="real_projects.p1_desc">Complete redesign of the official Les Santes de Mataró festival website. Modern UI/UX, improved accessibility, and immersive visual identity.</p><div class="pac-tags"><span class="stack-pill">UI/UX</span><span class="stack-pill">Frontend</span></div><div class="pac-actions"><a href="project.html?id=lessantes" class="project-detail-btn" data-i18n="real_projects.p1_detail">Details →</a><a href="https://www.lessantes.cat/" class="project-link" target="_blank" data-i18n="real_projects.p1_link">Live →</a></div></div></div></div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-tag" data-i18n="education.tag">07 — Education</div>
+  <div class="section-title"><span data-i18n="education.title_1">HOW I</span> <span data-i18n="education.title_2" class="red-stroke">LEARNED</span></div>
+  <div class="edu-layout">
+    <div class="edu-formal reveal">
+      <div class="edu-col-title" data-i18n="education.formal_title">Formal Education</div>
+      <div class="edu-timeline">
+        <div class="edu-entry"><div class="edu-dot-col"><div class="edu-dot"></div></div><div class="edu-content"><div class="edu-period-badge" data-i18n="education.e1_period">Currently studying</div><div class="edu-course-name" data-i18n="education.e1_name">Web Application Development</div><div class="edu-institution" data-i18n="education.e1_inst">📍 Escola Pía Mataró — Higher Degree</div></div></div>
+        <div class="edu-entry"><div class="edu-dot-col"><div class="edu-dot"></div></div><div class="edu-content"><div class="edu-period-badge" data-i18n="education.e2_period">2022 — 2024</div><div class="edu-course-name" data-i18n="education.e2_name">Microcomputer Systems & Networks</div><div class="edu-institution" data-i18n="education.e2_inst">📍 Escola Pía Mataró — Intermediate Degree</div></div></div>
+        <div class="edu-entry"><div class="edu-dot-col"><div class="edu-dot"></div></div><div class="edu-content"><div class="edu-period-badge" data-i18n="education.e3_period">2014 — 2020</div><div class="edu-course-name" data-i18n="education.e3_name">Compulsory Secondary Education</div><div class="edu-institution" data-i18n="education.e3_inst">📍 Cor de Maria Mataró</div></div></div>
+      </div>
+    </div>
+    <div class="edu-courses reveal">
+      <div class="edu-col-title" data-i18n="education.self_title">Self-Learning</div>
+      <div class="edu-courses-grid">
+        <div class="edu-course-card"><div class="ecc-platform">Udemy</div><div class="ecc-name" data-i18n="education.c1_name">Flutter & Dart</div><div class="ecc-status ecc-status--done" data-i18n="education.done">Completed</div></div>
+        <div class="edu-course-card"><div class="ecc-platform">Udemy</div><div class="ecc-name" data-i18n="education.c2_name">Python with Django</div><div class="ecc-status ecc-status--done" data-i18n="education.done">Completed</div></div>
+        <div class="edu-course-card"><div class="ecc-platform">Udemy</div><div class="ecc-name" data-i18n="education.c3_name">Advanced Python + AI</div><div class="ecc-status ecc-status--done" data-i18n="education.done">Completed</div></div>
+        <div class="edu-course-card"><div class="ecc-platform">Udemy</div><div class="ecc-name" data-i18n="education.c4_name">Full Stack Developer</div><div class="ecc-status ecc-status--wip" data-i18n="education.wip">In progress</div></div>
+        <div class="edu-course-card"><div class="ecc-platform">Udemy</div><div class="ecc-name" data-i18n="education.c5_name">Front-End & Back-End Web Dev</div><div class="ecc-status ecc-status--wip" data-i18n="education.wip">In progress</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOFT SKILLS -->
+<section id="softskills">
+  <div class="section-tag" data-i18n="softskills.tag">08 — Human Side</div>
+  <div class="section-title"><span data-i18n="softskills.title_1">BEYOND THE</span> <span data-i18n="softskills.title_2" class="red-stroke">CODE</span></div>
+  <div class="soft-grid reveal">
+    <div class="soft-cell"><span class="soft-index">01</span><span class="soft-emoji">🤝</span><div class="soft-name" data-i18n="softskills.s1_name">Teamwork</div><div class="soft-desc" data-i18n="softskills.s1_desc">Collaborative by nature. I listen, adapt, and elevate the people around me.</div></div>
+    <div class="soft-cell"><span class="soft-index">02</span><span class="soft-emoji">🗣️</span><div class="soft-name" data-i18n="softskills.s2_name">Active Listening</div><div class="soft-desc" data-i18n="softskills.s2_desc">I understand before I respond. Requirements don't get lost in translation.</div></div>
+    <div class="soft-cell"><span class="soft-index">03</span><span class="soft-emoji">🧠</span><div class="soft-name" data-i18n="softskills.s3_name">Self-Awareness</div><div class="soft-desc" data-i18n="softskills.s3_desc">I know my strengths, own my gaps, and work deliberately to close them.</div></div>
+    <div class="soft-cell"><span class="soft-index">04</span><span class="soft-emoji">🎨</span><div class="soft-name" data-i18n="softskills.s4_name">Creativity</div><div class="soft-desc" data-i18n="softskills.s4_desc">I find elegant solutions where others see dead ends. Design thinking built in.</div></div>
+    <div class="soft-cell"><span class="soft-index">05</span><span class="soft-emoji">🧭</span><div class="soft-name" data-i18n="softskills.s5_name">Self-Management</div><div class="soft-desc" data-i18n="softskills.s5_desc">Deadlines, priorities, energy — I own all three without needing hand-holding.</div></div>
+    <div class="soft-cell"><span class="soft-index">06</span><span class="soft-emoji">💖</span><div class="soft-name" data-i18n="softskills.s6_name">Empathy</div><div class="soft-desc" data-i18n="softskills.s6_desc">I build for people. Understanding the user is non-negotiable.</div></div>
+    <div class="soft-cell"><span class="soft-index">07</span><span class="soft-emoji">🔥</span><div class="soft-name" data-i18n="softskills.s7_name">Persistence</div><div class="soft-desc" data-i18n="softskills.s7_desc">I don't stop at the first wall. I debug, iterate, and ship.</div></div>
+  </div>
+  <div class="soft-testimonial reveal">
+    <div class="soft-testimonial-bar"></div>
+    <div class="soft-testimonial-inner">
+      <div class="soft-testimonial-quote">"</div>
+      <p class="soft-testimonial-text" data-i18n="softskills.testimonial">Aniol is a young talent with great potential. I am convinced that he has the ability to continue developing and growing, achieving his goal of excelling in the work he is truly passionate about. I recommend Aniol 100%.</p>
+      <div class="soft-testimonial-author">
+        <span class="soft-testimonial-name">Javier García Gerpe</span>
+        <span class="soft-testimonial-role" data-i18n="softskills.testimonial_role">Professional Reference</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-tag" style="justify-content:center" data-i18n="contact.tag">09 — Contact</div>
+    <div class="contact-big reveal">
+      <span data-i18n="contact.title_1">LET'S</span> <span data-i18n="contact.title_2" class="red-text">BUILD</span><br>
+      <span data-i18n="contact.title_3">TOGETHER</span>
+    </div>
+    <p style="color:var(--muted);font-size:1rem;max-width:420px;margin:0 auto" data-i18n="contact.subtitle">Open to internships, dual-training programs, and exciting projects. Let's create something great.</p>
+    <div class="contact-links">
+      <a href="mailto:aniolrodriguez2005@gmail.com" class="contact-link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 4l7 5 7-5" stroke="currentColor" stroke-width="1.2"/></svg>aniolrodriguez2005@gmail.com</a>
+      <a href="https://www.linkedin.com/in/aniol-rodriguez-530514295/" target="_blank" class="contact-link"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+      <a href="https://www.instagram.com/aniolrdrgz/" target="_blank" class="contact-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a href="https://github.com/DRAKEFISTFIRE/" target="_blank" class="contact-link"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://github.com/aniolepiaedu" target="_blank" class="contact-link"><i class="fa-brands fa-github"></i> GitHub Escola</a>
+      <a href="tel:+34637510005" class="contact-link"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2.5A1.5 1.5 0 013.5 1h1a1.5 1.5 0 011.5 1.5v1A1.5 1.5 0 014.5 5H4a8 8 0 007 7v-.5A1.5 1.5 0 0112.5 10h1A1.5 1.5 0 0115 11.5v1A1.5 1.5 0 0113.5 14h-.5C6.1 14 2 9.9 2 4.5V2.5z" stroke="currentColor" stroke-width="1.2"/></svg>637 51 00 05</a>
+    </div>
+    <p class="contact-loc" data-i18n="contact.loc">📍 Mataró, Barcelona, Cataluña</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-logo">AR<span>.</span></div>
+      <div class="footer-copy" data-i18n="footer.copy">© 2026 Aniol Rodríguez — Built with passion</div>
+    </div>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/aniolrodriguez_2005" target="_blank" class="footer-social"><i class="fa-brands fa-instagram"></i> <span data-i18n="footer.ig">Instagram</span></a>
+      <div class="footer-sep"></div>
+      <a href="https://github.com/DRAKEFISTFIRE/" target="_blank" class="footer-social"><i class="fa-brands fa-github"></i> <span data-i18n="footer.gh">GitHub</span></a>
+      <div class="footer-sep"></div>
+      <a href="https://github.com/aniolepiaedu" target="_blank" class="footer-social"><i class="fa-brands fa-github"></i> <span data-i18n="footer.gh2">Second GitHub</span></a>
+      <div class="footer-sep"></div>
+      <a href="https://www.linkedin.com/in/aniol-rodriguez-530514295/" target="_blank" class="footer-social"><i class="fa-brands fa-linkedin-in"></i> <span data-i18n="footer.li">LinkedIn</span></a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/portfolio.js"></script>
+<script src="js/language.js"></script>
 </body>
 </html>
