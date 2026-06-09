@@ -19,10 +19,10 @@ const PROJECTS_I18N = {
       { label: 'GitHub', url: 'https://github.com/DRAKEFISTFIRE/SushiKick', icon: 'github' }
     ],
     gallery: [
-      { url: '/images/projectes/menu.png',  captionKey: 'g1' },
-      { url: '/images/projectes/pedido.png',                                                           captionKey: 'g2' },
-      { url: '/images/projectes/mapa-pedido.png',  captionKey: 'g3' },
-      { url: '/images/projectes/perfil-sushi.png',     captionKey: 'g4' }
+      { url: 'https://drakefistfire.github.io/web/images/projectes/menu.png',  captionKey: 'g1' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/pedido.png',                                                           captionKey: 'g2' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/mapa-pedido.png',  captionKey: 'g3' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/perfil-sushi.png',     captionKey: 'g4' }
     ],
     tech: {
       frontend: ['Vue 3 (Composition API, script setup)', 'Vite', 'Vue Router', 'Leaflet.js', 'CSS Custom Properties', 'Bebas Neue + Noto Sans JP'],
@@ -115,10 +115,10 @@ const PROJECTS_I18N = {
       { label: 'GitHub', url: 'https://github.com/DRAKEFISTFIRE/PDDC', icon: 'github' }
     ],
     gallery: [
-      { url: '/images/projectes/homePolis.png', captionKey: 'g1' },
-      { url: '/images/projectes/gestioCasos.png',   captionKey: 'g2' },
-      { url: '/images/projectes/nivel-policia.png', captionKey: 'g3' },
-      { url: '/images/projectes/departament.png',   captionKey: 'g4' }
+      { url: 'https://drakefistfire.github.io/web/images/projectes/homePolis.png', captionKey: 'g1' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/gestioCasos.png',   captionKey: 'g2' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/nivel-policia.png', captionKey: 'g3' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/departament.png',   captionKey: 'g4' }
     ],
     tech: {
       frontend: ['React 18', 'React Router', 'Context API', 'CSS Modules', 'Chart.js', 'leaflet.js'],
@@ -199,10 +199,10 @@ const PROJECTS_I18N = {
       { label: 'GitHub', url: 'https://github.com/aniolepiaedu/montmeloInside', icon: 'github' }
     ],
     gallery: [
-      { url: '/images/projectes/montmelo-mapa.png', captionKey: 'g1' },
-      { url: '/images/projectes/seguiment.png', captionKey: 'g2' },
-      { url: '/images/projectes/montmeloEvents.png', captionKey: 'g3' },
-      { url: '/images/projectes/historial.png', captionKey: 'g4' }
+      { url: 'https://drakefistfire.github.io/web/images/projectes/montmelo-mapa.png', captionKey: 'g1' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/seguiment.png', captionKey: 'g2' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/montmeloEvents.png', captionKey: 'g3' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/historial.png', captionKey: 'g4' }
     ],
     tech: {
       frontend: ['React Native', 'Expo', 'React Navigation', 'react-native-maps'],
@@ -361,10 +361,10 @@ const PROJECTS_I18N = {
       { label: 'GitHub', url: 'https://github.com/DRAKEFISTFIRE/TrapLife', icon: 'github' }
     ],
     gallery: [
-      { url: '/images/projectes/homeTrap.png', captionKey: 'g1' },
-      { url: '/images/projectes/reglamentTrap.png', captionKey: 'g2' },
-      { url: '/images/projectes/elegirnosTrap.png', captionKey: 'g3' },
-      { url: '/images/projectes/homeTrap.png', captionKey: 'g4' }
+      { url: 'https://drakefistfire.github.io/web/images/projectes/homeTrap.png', captionKey: 'g1' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/reglamentTrap.png', captionKey: 'g2' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/elegirnosTrap.png', captionKey: 'g3' },
+      { url: 'https://drakefistfire.github.io/web/images/projectes/homeTrap.png', captionKey: 'g4' }
     ],
     tech: {
       frontend: ['Html, css', 'JavaScript','Tailwind CSS'],
@@ -602,10 +602,10 @@ const PROJECTS_I18N = {
 
   ],
   gallery: [
-    { url: '/images/projectes/searcher.png', captionKey: 'g1' },
-    { url: '/images/projectes/disseny.png', captionKey: 'g2' },
-    { url: '/images/projectes/agenda.png', captionKey: 'g3' },
-    { url: 'images/projectes/minisantes.png', captionKey: 'g4' }
+    { url: 'https://drakefistfire.github.io/web/images/projectes/searcher.png', captionKey: 'g1' },
+    { url: 'https://drakefistfire.github.io/web/images/projectes/disseny.png', captionKey: 'g2' },
+    { url: 'https://drakefistfire.github.io/web/images/projectes/agenda.png', captionKey: 'g3' },
+    { url: 'https://drakefistfire.github.io/web/images/projectes/minisantes.png', captionKey: 'g4' }
   ],
   tech: {
     frontend: ['HTML5', 'CSS3', 'JavaScript', 'GSAP', 'Responsive Design', 'Accessibility'],
