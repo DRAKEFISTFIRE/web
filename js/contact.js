@@ -47,7 +47,7 @@ const services = {
     subtitle: "Scalable APIs and system architecture.",
     description: "Robust backend systems, authentication, APIs and database design ready for production.",
     tags: ["Laravel", "Node.js", "Express", "MySQL", "MongoDB"],
-    banner: "../images/backend-form.jpg",
+    banner: "https://drakefistfire.github.io/web/images/backend-form.jpg",
     fields: `
       <div class="contact-section">
         <div class="pd-section-tag">04 — BACKEND CONFIGURATION</div>
@@ -87,7 +87,7 @@ const services = {
     subtitle: "Cross-platform apps with Flutter.",
     description: "Native-like mobile apps for Android and iOS with scalable architecture.",
     tags: ["Flutter", "Dart", "Android", "iOS"],
-    banner: "../images/mobile-form.jpg",
+    banner: "https://drakefistfire.github.io/web/images/mobile-form.jpg",
     fields: `
       <div class="contact-section">
         <div class="pd-section-tag">04 — MOBILE CONFIGURATION</div>
@@ -118,7 +118,7 @@ const services = {
     subtitle: "Infrastructure and deployment systems.",
     description: "CI/CD, Docker, cloud infrastructure and scalable deployments.",
     tags: ["Docker", "CI/CD", "AWS", "Monitoring"],
-    banner: "../images/devops-form.jpg",
+    banner: "https://drakefistfire.github.io/web/images/devops-form.jpg",
     fields: `
       <div class="contact-section">
         <div class="pd-section-tag">04 — DEVOPS CONFIGURATION</div>
@@ -151,7 +151,7 @@ const services = {
     subtitle: "Smart automation & AI integrations.",
     description: "AI-powered systems: chatbots, automation and intelligent workflows.",
     tags: ["OpenAI", "Python", "LangChain"],
-    banner: "../images/ia-form.jpg",
+    banner: "https://drakefistfire.github.io/web/images/ia-form.jpg",
     fields: `
       <div class="contact-section">
         <div class="pd-section-tag">04 — AI CONFIGURATION</div>
@@ -183,7 +183,7 @@ const services = {
     subtitle: "End-to-end product development.",
     description: "From idea to launch: design, frontend, backend, DevOps and scaling.",
     tags: ["Architecture", "Design", "Full Stack", "Deployment"],
-    banner: "../images/fullstack-form.jpg",
+    banner: "https://drakefistfire.github.io/web/images/fullstack-form.jpg",
     fields: `
       <div class="contact-section">
         <div class="pd-section-tag">04 — PRODUCT CONFIGURATOR</div>
