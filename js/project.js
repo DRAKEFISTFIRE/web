@@ -110,7 +110,7 @@ const PROJECTS_I18N = {
     year: '2024–2025',
     status: 'completed',
     tags: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT'],
-    hero: '/images/bannerHome.jpg',
+    hero: 'https://drakefistfire.github.io/web/images/bannerHome.jpg',
     links: [
       { label: 'GitHub', url: 'https://github.com/DRAKEFISTFIRE/PDDC', icon: 'github' }
     ],
