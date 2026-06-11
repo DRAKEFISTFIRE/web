@@ -12,7 +12,7 @@ const PROJECTS_I18N = {
   sushikick: {
     id: 'sushikick',
     year: '2025–2026',
-    status: 'in-development',
+    status: 'Finished',
     tags: ['Vue.js', 'Laravel', 'Leaflet', 'Sanctum', 'MySQL'],
     hero: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1600&q=85',
     links: [
