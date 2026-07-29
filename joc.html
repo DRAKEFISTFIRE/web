@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="./css/joc.css">
     <link rel="stylesheet" href="./css/nivell.css">
     <link rel="stylesheet" href="./css/mobile.css">
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/logoSantesTiles.png">
+
 </head>
 <body>
 <section>
@@ -21,8 +23,9 @@
                 <div id="title-bg"></div>
                 <canvas id="title-particles"></canvas>
                 <div class="title-content">
-                    <div class="title-festa">Festes de Les Santes · Mataró</div>
-                    <div class="title-main">LES<br><span>SANTES</span></div>
+                    <div class="title-festa">Fes la teva canço preferida</div>
+                    <div class="title-main">SANTES<br><span>TILES</span></div>
+                    <div class="title-sub">Gralles & Tabals</div>
                     <div class="title-sub">Santes Tiles</div>
                     <div class="title-divider"><span>✦</span></div>
                     <button class="btn-primary" id="btn-play">JUGAR</button>
@@ -42,63 +45,238 @@
             <div id="screen-select" class="screen">
                 <div class="select-header">
                     <button class="back-btn" id="btn-back-select">← TORNAR</button>
-                    <div class="select-title">SELECCIONA CANÇÓ</div>
-                    <div id="category-selector" class="category-selector">
-                    <button class="cat-btn" data-cat="ALL">Totes</button>
-                    <button class="cat-btn" data-cat="Les Santes">Les Santes</button>
-                    <button class="cat-btn" data-cat="Generals">Generals</button>
-                    <button class="cat-btn" data-cat="Sant Jordi">Sant Jordi</button>
-                    </div>
-                    <div class="difficulty-selector">
-                    <select id="difficulty">
-                        <option value="easy">Fácil</option>
-                        <option value="normal" selected>Normal</option>
-                        <option value="hard">Difícil</option>
-                    </select>
-                    </div>
+                    <div class="select-title">SANTES TILES</div>
                 </div>
-                <div class="songs-grid" id="songs-grid"></div>
-                <div class="instructions-wrapper">
-                    <div class="instructions-header">
-                        <div class="instruccions-title">COM ES JUGA</div>
-                    </div>
-                   <div class="instructions-body">
 
-                    <div class="instructions-top">
-                        <div class="instructions-image">
-                            <img src="https://drakefistfire.github.io/web/images/prova.png" alt="Com es juga">
-                        </div>
+                <div class="app-panels">
 
-                        <div class="instructions-explanation">
-                            <div class="inst-block">
-                                <h4>🎯 Objectiu</h4>
-                                <p>Prem les tecles quan les notes arriben a la zona inferior per sumar punts i combo.</p>
+                    <!-- ── PANEL: CANÇONS ── -->
+                    <div class="app-panel active" id="panel-songs">
+
+                        <div class="panel-toolbar">
+                            <div id="category-selector" class="category-selector">
+                                <button class="cat-btn" data-cat="ALL">Totes</button>
+                                <button class="cat-btn" data-cat="Les Santes">Les Santes</button>
+                                <button class="cat-btn" data-cat="Generals">Generals</button>
+                                <button class="cat-btn" data-cat="Sant Jordi">Sant Jordi</button>
                             </div>
 
-                            <div class="inst-block">
-                                <h4>⚠️ Evita errors</h4>
-                                <p>Si falles massa notes, perdràs vides. Mantén el ritme constant i evita errors.</p>
+                            <div class="search-bar" id="song-search-bar">
+                                <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" id="song-search-input" class="search-input" placeholder="Cerca una cançó..." autocomplete="off">
+                                <button type="button" class="search-clear" id="song-search-clear" aria-label="Esborrar cerca">✕</button>
+                            </div>
+
+                            <div class="filter-row">
+                                <div class="csel" id="csel-colla" data-csel>
+                                    <span class="csel-tag">Colla</span>
+                                    <button type="button" class="csel-trigger" aria-haspopup="listbox" aria-expanded="false">
+                                        <span class="csel-value">Totes les colles</span>
+                                        <span class="csel-arrow">▼</span>
+                                    </button>
+                                    <ul class="csel-options" role="listbox" tabindex="-1" id="colla-options">
+                                        <li role="option" data-value="ALL" aria-selected="true">Totes les colles</li>
+                                    </ul>
+                                    <select id="colla-filter" class="csel-native" aria-hidden="true" tabindex="-1">
+                                        <option value="ALL">Totes les colles</option>
+                                    </select>
+                                </div>
+
+                                <div class="csel" id="csel-figura" data-csel>
+                                    <span class="csel-tag">Figura</span>
+                                    <button type="button" class="csel-trigger" aria-haspopup="listbox" aria-expanded="false">
+                                        <span class="csel-value">Totes les figures</span>
+                                        <span class="csel-arrow">▼</span>
+                                    </button>
+                                    <ul class="csel-options" role="listbox" tabindex="-1" id="figura-options">
+                                        <li role="option" data-value="ALL" aria-selected="true">Totes les figures</li>
+                                    </ul>
+                                    <select id="figura-filter" class="csel-native" aria-hidden="true" tabindex="-1">
+                                        <option value="ALL">Totes les figures</option>
+                                    </select>
+                                </div>
+
+                                <!-- NOU: filtre per tipus de música (ns / batucada / pasdobles...) -->
+                                <div class="csel" id="csel-tipus" data-csel>
+                                    <span class="csel-tag">Tipus</span>
+                                    <button type="button" class="csel-trigger" aria-haspopup="listbox" aria-expanded="false">
+                                        <span class="csel-value">Tots els tipus</span>
+                                        <span class="csel-arrow">▼</span>
+                                    </button>
+                                    <ul class="csel-options" role="listbox" tabindex="-1" id="tipus-options">
+                                        <li role="option" data-value="ALL" aria-selected="true">Tots els tipus</li>
+                                        <li role="option" data-value="ns">NS</li>
+                                        <li role="option" data-value="batucada">Batucada</li>
+                                        <li role="option" data-value="pasdoble">Pasdobles</li>
+                                    </ul>
+                                    <select id="tipus-filter" class="csel-native" aria-hidden="true" tabindex="-1">
+                                        <option value="ALL">Tots els tipus</option>
+                                        <option value="ns">NS</option>
+                                        <option value="batucada">Batucada</option>
+                                        <option value="pasdoble">Pasdobles</option>
+                                    </select>
+                                </div>
+
+                                <div class="csel" id="csel-difficulty" data-csel>
+                                    <span class="csel-tag">Dificultat</span>
+                                    <button type="button" class="csel-trigger" aria-haspopup="listbox" aria-expanded="false">
+                                        <span class="csel-value">Normal</span>
+                                        <span class="csel-arrow">▼</span>
+                                    </button>
+                                    <ul class="csel-options" role="listbox" tabindex="-1">
+                                        <li role="option" data-value="easy">Fàcil</li>
+                                        <li role="option" data-value="normal" aria-selected="true">Normal</li>
+                                        <li role="option" data-value="hard">Difícil</li>
+                                    </ul>
+                                    <select id="difficulty" class="csel-native" aria-hidden="true" tabindex="-1">
+                                        <option value="easy">Fàcil</option>
+                                        <option value="normal" selected>Normal</option>
+                                        <option value="hard">Difícil</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="instructions-text">
-                        Toca o prem les tecles just en el moment perfecte.
-                    </div>
+                        <div class="songs-grid" id="songs-grid"></div>
 
-                    <div class="instructions-keys">
-                        <div class="inst-key"><b>A</b><span>← esquerra</span></div>
-                        <div class="inst-key"><b>S</b><span>↓ centre</span></div>
-                        <div class="inst-key"><b>D</b><span>→ centre</span></div>
-                        <div class="inst-key"><b>W</b><span>↑ dreta</span></div>
-                    </div>
+                    </div><!-- /panel-songs -->
 
-                    <div class="instructions-tip">
-                        💡 Com més combo, més punts!
-                    </div>
+                    <!-- ── PANEL: CLASSIFICACIÓ ── -->
+                    <div class="app-panel" id="panel-leaderboard">
 
-                </div>
-                </div><!-- /instructions-wrapper -->
+                        <div class="panel-toolbar panel-toolbar-solo">
+                            <div class="csel" id="csel-lb-song" data-csel>
+                                <span class="csel-tag">Cançó</span>
+                                <button type="button" class="csel-trigger" aria-haspopup="listbox" aria-expanded="false">
+                                    <span class="csel-value">Totes les cançons</span>
+                                    <span class="csel-arrow">▼</span>
+                                </button>
+                                <ul class="csel-options" role="listbox" tabindex="-1" id="lb-song-options">
+                                    <li role="option" data-value="ALL" aria-selected="true">Totes les cançons</li>
+                                </ul>
+                                <select id="lb-song-filter" class="csel-native" aria-hidden="true" tabindex="-1">
+                                    <option value="ALL">Totes les cançons</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="leaderboard-wrap">
+                            <div class="leaderboard-head">
+                                <span>#</span>
+                                <span>Cançó</span>
+                                <span>Puntuació</span>
+                                <span>Estrelles</span>
+                                <span>Data</span>
+                            </div>
+                            <div class="leaderboard-list" id="leaderboard-list"></div>
+                            <div class="leaderboard-empty" id="leaderboard-empty">
+                                <div class="lb-empty-mark">✦</div>
+                                <p>Encara no hi ha cap partida registrada.</p>
+                                <p class="lb-empty-sub">Juga una canço i el teu resultat apareixerà aquí.</p>
+                            </div>
+                        </div>
+
+                    </div><!-- /panel-leaderboard -->
+
+                    <!-- ── PANEL: PERFIL ── -->
+                    <div class="app-panel" id="panel-profile">
+
+                        <div class="profile-card">
+                            <div class="profile-seal" id="profile-seal">J</div>
+
+                            <div class="profile-id">
+                                <input type="text" id="profile-name" class="profile-name-input" maxlength="18" value="Jugador" spellcheck="false">
+                                <div class="profile-since" id="profile-since">Membre des de —</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-stats">
+                            <div class="pstat">
+                                <div class="pstat-val" id="pstat-plays">0</div>
+                                <div class="pstat-lbl">Partides</div>
+                            </div>
+                            <div class="pstat">
+                                <div class="pstat-val" id="pstat-best">0</div>
+                                <div class="pstat-lbl">Millor puntuació</div>
+                            </div>
+                            <div class="pstat">
+                                <div class="pstat-val" id="pstat-total">0</div>
+                                <div class="pstat-lbl">Punts totals</div>
+                            </div>
+                            <div class="pstat">
+                                <div class="pstat-val" id="pstat-stars">0</div>
+                                <div class="pstat-lbl">Estrelles</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-favorite" id="profile-favorite">
+                            <span class="pfav-lbl">Cançó preferida</span>
+                            <span class="pfav-val" id="pfav-val">—</span>
+                        </div>
+
+                        <div class="profile-footer">
+                            <button class="btn-secondary" id="btn-reset-profile">↺ REINICIAR DADES LOCALS</button>
+                        </div>
+
+                    </div><!-- /panel-profile -->
+
+                    <!-- ── PANEL: TENDA ── -->
+                    <div class="app-panel" id="panel-shop">
+
+                        <div class="shop-hero">
+                            <div class="shop-hero-icon"><i class="fa-solid fa-store"></i></div>
+                            <h3>Tenda</h3>
+                            <p>Bescanvia els teus punts per fons, avatars i altres recompenses. Molt aviat!</p>
+                        </div>
+
+                        <div class="shop-grid">
+                            <div class="shop-item locked">
+                                <div class="shop-item-icon"><i class="fa-solid fa-image"></i></div>
+                                <div class="shop-item-name">Fons exclusiu</div>
+                                <div class="shop-item-lock"><i class="fa-solid fa-lock"></i> Pròximament</div>
+                            </div>
+                            <div class="shop-item locked">
+                                <div class="shop-item-icon"><i class="fa-solid fa-crown"></i></div>
+                                <div class="shop-item-name">Marc daurat</div>
+                                <div class="shop-item-lock"><i class="fa-solid fa-lock"></i> Pròximament</div>
+                            </div>
+                            <div class="shop-item locked">
+                                <div class="shop-item-icon"><i class="fa-solid fa-star"></i></div>
+                                <div class="shop-item-name">Efecte d'estrelles</div>
+                                <div class="shop-item-lock"><i class="fa-solid fa-lock"></i> Pròximament</div>
+                            </div>
+                        </div>
+
+                    </div><!-- /panel-shop -->
+
+                </div><!-- /app-panels -->
+                  <nav class="bottom-nav">
+                <button class="nav-item active" data-panel="songs">
+                    <i class="fa-solid fa-music"></i>
+                    <span>Inicio</span>
+                </button>
+
+                <button class="nav-item" data-panel="leaderboard">
+                    <i class="fa-solid fa-trophy"></i>
+                    <span>Clasificación</span>
+                </button>
+
+                <button class="nav-item" data-panel="profile">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Perfil</span>
+                </button>
+
+                <button class="nav-item" data-panel="config">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Ajustes</span>
+                </button>
+
+                <button class="nav-item" data-panel="shop">
+                    <i class="fa-solid fa-store"></i>
+                    <span>Tienda</span>
+                </button>
+            </nav>
+
             </div><!-- /screen-select -->
 
             <!-- ══ CONFIG SCREEN ══ -->
@@ -114,20 +292,20 @@
                     </div>
 
                     <div class="config-lanes-preview">
-                        <div class="config-lane-preview" id="cfg-lane-preview-0" style="border-color:#e8002d22; background:rgba(232,0,45,0.06)">
-                            <span style="color:#e8002d">●</span>
+                        <div class="config-lane-preview" id="cfg-lane-preview-0" style="border-color:#ff6f6122; background:rgba(255,111,97,0.06)">
+                            <span style="color:#ff6f61">●</span>
                             <span id="cfg-lane-label-0">A / ← Fletxa</span>
                         </div>
-                        <div class="config-lane-preview" id="cfg-lane-preview-1" style="border-color:#1a8fff22; background:rgba(26,143,255,0.06)">
-                            <span style="color:#1a8fff">●</span>
+                        <div class="config-lane-preview" id="cfg-lane-preview-1" style="border-color:#2dd4bf22; background:rgba(45,212,191,0.06)">
+                            <span style="color:#2dd4bf">●</span>
                             <span id="cfg-lane-label-1">S / ↓ Fletxa</span>
                         </div>
-                        <div class="config-lane-preview" id="cfg-lane-preview-2" style="border-color:#00cc5522; background:rgba(0,204,85,0.06)">
-                            <span style="color:#00cc55">●</span>
+                        <div class="config-lane-preview" id="cfg-lane-preview-2" style="border-color:#9b8cf222; background:rgba(155,140,242,0.06)">
+                            <span style="color:#9b8cf2">●</span>
                             <span id="cfg-lane-label-2">D / → Fletxa</span>
                         </div>
-                        <div class="config-lane-preview" id="cfg-lane-preview-3" style="border-color:#ff880022; background:rgba(255,136,0,0.06)">
-                            <span style="color:#ff8800">●</span>
+                        <div class="config-lane-preview" id="cfg-lane-preview-3" style="border-color:#6ee7d922; background:rgba(110,231,217,0.06)">
+                            <span style="color:#6ee7d9">●</span>
                             <span id="cfg-lane-label-3">W / ↑ Fletxa</span>
                         </div>
                     </div>
@@ -206,14 +384,40 @@
                         <button class="btn-primary" id="btn-res-retry">TORNAR A JUGAR</button>
                     </div>
                 </div>
-            </div><!-- /screen-result -->
+
+           
+            </div>
+             <!-- Bottom Navigation -->
+         
 
         </div><!-- /game-container -->
     </div><!-- /game-banner -->
 
+   
+
 </section>
 <script src="./js/mobile.js"></script>
-<script src="./js/joc.js"></script>
+
+<!-- ══ JOC.JS DIVIDIT EN MÒDULS (l'ordre importa: cada script depèn dels anteriors) ══ -->
+<script src="./js/joc/songs-data.js"></script>
+<script src="./js/joc/key-config.js"></script>
+<script src="./js/joc/progress.js"></script>
+<script src="./js/joc/screens.js"></script>
+<script src="./js/joc/particles.js"></script>
+<script src="./js/joc/audio-helpers.js"></script>
+<script src="./js/joc/song-select.js"></script>
+<script src="./js/joc/config-screen.js"></script>
+<script src="./js/joc/game-engine.js"></script>
+<script src="./js/joc/input.js"></script>
+<script src="./js/joc/navigation.js"></script>
+
+<!-- ══ NAV, CLASSIFICACIÓ, PERFIL I SELECTS PERSONALITZATS (nou) ══ -->
+<script src="./js/joc/custom-select.js"></script>
+<script src="./js/joc/nav-features.js"></script>
+
+<!-- ══ NOU: cercador de cançons (independent, no toca els altres mòduls) ══ -->
+<script src="./js/joc/song-search.js"></script>
+
 <script src="./js/tutorial.js"></script>
 
 </body>
